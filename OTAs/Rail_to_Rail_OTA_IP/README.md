@@ -81,7 +81,7 @@ All simulations were run across **5 PVT corners** (tt, ss, ff, fs, sf) at T = 27
 
 ### 1. DC Transfer Characteristics
 
-![DC Transfer](results/IEEE_DC.png)
+![DC Transfer](Rail_to_Rail_OTA_Sims/IEEE_plots/IEEE_DC.png)
 
 **What is shown:**
 - **(Top)** V<sub>out</sub> vs. V<sub>ICM</sub> (unity-gain configuration) sweeping the input common-mode from 0 V to 1.8 V across all corners. The output closely tracks the ideal y = x line across the full swing.
@@ -96,7 +96,7 @@ All simulations were run across **5 PVT corners** (tt, ss, ff, fs, sf) at T = 27
 
 ### 2. Stability (Loop Gain & Phase)
 
-![Stability](results/IEEE_STB.png)
+![Stability](Rail_to_Rail_OTA_Sims/IEEE_plots/IEEE_STB.png)
 
 Stability analysis performed using the **Middlebrook two-port method** in Ngspice, with the OTA configured in unity-gain feedback and a 10 pF load.
 
@@ -120,7 +120,7 @@ Stability analysis performed using the **Middlebrook two-port method** in Ngspic
 
 ### 3. Transient Response
 
-![Transient](results/IEEE_TRAN.png)
+![Transient](Rail_to_Rail_OTA_Sims/IEEE_plots/IEEE_TRAN.png)
 
 **Test setup:** Unity-gain configuration with a sinusoidal V<sub>ICM</sub> input sweeping 0.25 V – 1.55 V (covering ~75% of the rail-to-rail range dynamically).
 
@@ -137,7 +137,7 @@ Stability analysis performed using the **Middlebrook two-port method** in Ngspic
 
 ### 4. PSRR
 
-![PSRR](results/IEEE_PSRR.png)
+![PSRR](Rail_to_Rail_OTA_Sims/IEEE_plots/IEEE_PSRR.png)
 
 Power Supply Rejection Ratio measured as V<sub>out</sub>/V<sub>DD</sub> in dB vs. frequency.
 
@@ -151,7 +151,7 @@ Power Supply Rejection Ratio measured as V<sub>out</sub>/V<sub>DD</sub> in dB vs
 
 ### 5. Monte Carlo — Input-Referred Offset
 
-![Monte Carlo](results/IEEE_MC.png)
+![Monte Carlo](Rail_to_Rail_OTA_Sims/IEEE_plots/IEEE_MC.png)
 
 Monte Carlo mismatch simulation with **N = 200 runs** using SKY130 statistical mismatch models.
 
@@ -167,7 +167,7 @@ Monte Carlo mismatch simulation with **N = 200 runs** using SKY130 statistical m
 
 **Key observations:**
 - The offset distribution is well-centered at μ = 0.11 mV, confirming good layout symmetry in the input differential pair.
-- σ = 1.54 mV is competitive for an untrimmmed OTA in a 130 nm process.
+- σ = 1.54 mV is competitive for an untrimmed OTA in a 130 nm process.
 - The ±3σ window spans approximately ±4.6 mV, meaning >99.7% of fabricated instances will have offset below 5 mV.
 - The histogram shape is approximately Gaussian, consistent with uncorrelated mismatch contributions from the diff pair and load devices.
 
@@ -197,22 +197,46 @@ Monte Carlo mismatch simulation with **N = 200 runs** using SKY130 statistical m
 ```
 Rail_to_Rail_OTA_IP/
 ├── SCH/
-│   ├── Rail_to_Rail_IP_OP_OTA.sch          # Top-level OTA schematic (Xschem)
-│   └── Rail_to_Rail_IP_OP_OTA.png          # Schematic screenshot
-├── TB/
-│   ├── tb_dc.sch                            # DC sweep testbench
-│   ├── tb_stb.sch                           # Stability (Middlebrook) testbench
-│   ├── tb_tran.sch                          # Transient testbench
-│   ├── tb_psrr.sch                          # PSRR testbench
-│   └── tb_mc.sch                            # Monte Carlo testbench
-├── results/
-│   ├── IEEE_DC.png                          # DC transfer characteristic plot
-│   ├── IEEE_STB.png                         # Loop gain & phase plot
-│   ├── IEEE_TRAN.png                        # Transient response plot
-│   ├── IEEE_PSRR.png                        # PSRR plot
-│   └── IEEE_MC.png                          # Monte Carlo offset histogram
-├── sim/
-│   └── corners.spi                          # Corner definitions for ngspice
+│   ├── Rail_to_Rail_IP_OP_OTA.sch                     # Top-level OTA schematic (Xschem)
+│   ├── Rail_to_Rail_IP_OP_OTA.sym                     # Xschem symbol
+│   ├── Rail_to_Rail_IP_OP_OTA.png                     # Schematic screenshot
+│   ├── Rail_to_Rail_IP_OP_OTA_STB.sch                 # Stability testbench schematic
+│   ├── Rail_to_Rail_IP_OP_OTA_MC.sch                  # Monte Carlo testbench schematic
+│   └── tb_Rail_to_Rail_IP_OP_OTA_DC_TRAN_PSRR.sch    # DC/Transient/PSRR testbench
+├── Rail_to_Rail_OTA_Sims/
+│   ├── IEEE_plots/
+│   │   ├── IEEE_DC.png / .pdf                         # DC transfer characteristic
+│   │   ├── IEEE_STB.png / .pdf                        # Loop gain & phase
+│   │   ├── IEEE_TRAN.png / .pdf                       # Transient response
+│   │   ├── IEEE_PSRR.png / .pdf                       # PSRR
+│   │   └── IEEE_MC.png / .pdf                         # Monte Carlo offset histogram
+│   ├── DC/
+│   │   ├── csv_results/                               # Per-corner DC CSV data
+│   │   ├── spice/                                     # Per-corner DC netlists & logs
+│   │   └── DC_cross_corner.html                       # Interactive Plotly DC plot
+│   ├── STB/
+│   │   ├── csv_results/                               # Per-corner STB CSV data
+│   │   ├── spice/                                     # Per-corner STB netlists & logs
+│   │   └── STB_cross_corner.html                      # Interactive Plotly STB plot
+│   ├── TRAN/
+│   │   ├── csv_results/                               # Per-corner transient CSV data
+│   │   ├── spice/                                     # Per-corner transient netlists & logs
+│   │   └── TRAN_cross_corner.html                     # Interactive Plotly transient plot
+│   ├── PSRR/
+│   │   ├── csv_results/                               # Per-corner PSRR CSV data
+│   │   ├── spice/                                     # Per-corner PSRR netlists & logs
+│   │   └── PSRR_cross_corner.html                     # Interactive Plotly PSRR plot
+│   └── MC/
+│       ├── csv_results/                               # MC offset CSV data
+│       ├── spice/                                     # MC netlist & raw output
+│       └── MC_offset_histogram.html                   # Interactive Plotly MC histogram
+├── different_spice/                                   # Standalone SPICE netlists
+│   ├── Rail_to_Rail_IP_OP_OTA_STB.spice
+│   ├── Rail_to_Rail_IP_OP_OTA_MC.spice
+│   ├── tb_Rail_to_Rail_IP_OP_OTA.spice
+│   └── tb_Rail_to_Rail_IP_OP_OTA_DC_TRAN_PSRR.spice
+├── run_corners.py                                     # Python cross-corner automation script
+├── tb_Rail_to_Rail_IP_OP_OTA_DC_TRAN_PSRR.spice
 └── README.md
 ```
 
