@@ -78,6 +78,9 @@ Key nodes and current budgets annotated on schematic:
 
 <img width="667" height="278" alt="image" src="https://github.com/user-attachments/assets/08ea1af9-4e8e-44fc-ae92-9d1902cb8671" />
 
+<img width="767" height="283" alt="image" src="https://github.com/user-attachments/assets/39f79dd2-ffb5-48be-aa00-ef81b47b6a89" />
+
+
 ---
 
 ## Simulation Results
