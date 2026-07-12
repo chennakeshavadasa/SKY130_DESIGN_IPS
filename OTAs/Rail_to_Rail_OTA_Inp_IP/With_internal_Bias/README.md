@@ -3,7 +3,8 @@
 > **Author:** Nithin Purushothama  
 > **PDK:** SkyWater SKY130 (sky130A)  
 > **Toolchain:** Xschem · Ngspice · Magic VLSI · Netgen  
-> **Last Updated:** 2026-05-23
+> **Last Updated:** 2026-07-12
+> **Area:** 47.15µmx47.15µm
 
 ---
 
@@ -72,10 +73,8 @@ Key nodes and current budgets annotated on schematic:
 | Output cascode (L1 + L2) | ~2 µA + 4 µA per side |
 
 ---
-
----
 ## Area Estimate: 
-47.15µmX47.15µm (This is Schematic based approximation and not based on real layout)
+47.15µmx47.15µm (This is Schematic based approximation and not based on real layout)
 
 <img width="667" height="278" alt="image" src="https://github.com/user-attachments/assets/08ea1af9-4e8e-44fc-ae92-9d1902cb8671" />
 
