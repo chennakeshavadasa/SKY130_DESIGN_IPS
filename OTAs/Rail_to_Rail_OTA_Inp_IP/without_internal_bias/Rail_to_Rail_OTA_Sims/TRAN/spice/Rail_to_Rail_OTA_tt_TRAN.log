@@ -1,0 +1,69 @@
+Error opening osdi lib "/home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/psp103.osdi": No such file or directory!
+Error: Library /home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/psp103.osdi couldn't be loaded!
+Error opening osdi lib "/home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/psp103_nqs.osdi": No such file or directory!
+Error: Library /home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/psp103_nqs.osdi couldn't be loaded!
+Error opening osdi lib "/home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/r3_cmc.osdi": No such file or directory!
+Error: Library /home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/r3_cmc.osdi couldn't be loaded!
+Error opening osdi lib "/home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/mosvar.osdi": No such file or directory!
+Error: Library /home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/mosvar.osdi couldn't be loaded!
+Warning: OSDI libs have not been loaded successfully.
+    Any of the following steps may fail, if Verilog A models are involved!.
+
+Note: Starting dynamic gmin stepping
+Note: Dynamic gmin stepping completed
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /home/nithin/eda/skywater_design_ips/otas/tb_rail_to_rail_ip_op_ota_dc_tran_psrr.sch
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+ Reference value :  0.00000e+00Note: Starting dynamic gmin stepping
+Note: Dynamic gmin stepping completed
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+gnda                                         0
+en                                         1.8
+vout                                  0.899928
+x1.net2                               0.215863
+x1.net8                               0.745263
+x1.vbn_casc                           0.915407
+x1.net1                               0.214026
+x1.net5                                0.65544
+x1.vbp_casc                           0.608815
+x1.net4                                1.56766
+vdd                                        1.8
+x1.net3                                1.56606
+vicm                                       0.9
+x1.net6                                0.36624
+x1.net7                                1.42183
+x1.net9                               0.648808
+x1.net12                             0.0169512
+x1.net11                               1.74459
+x1.net13                             0.0353156
+x1.net14                             0.0555225
+x1.net10                               1.66827
+x1.net15                             0.0782638
+x1.net16                              0.104782
+x1.net17                              0.137729
+x1.net18                              0.185118
+x1.en_b                            2.13513e-09
+v4#branch                         -2.25127e-05
+v2#branch                                    0
+v5#branch                                    0
+v3#branch                                    0
+
+
+No. of Data Rows : 103
+Note: Simulation executed from .control section 
