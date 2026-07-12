@@ -73,6 +73,14 @@ Key nodes and current budgets annotated on schematic:
 
 ---
 
+---
+## Area Estimate: 
+47.15µmX47.15µm (This is Schematic based approximation and not based on real layout)
+
+<img width="667" height="278" alt="image" src="https://github.com/user-attachments/assets/08ea1af9-4e8e-44fc-ae92-9d1902cb8671" />
+
+---
+
 ## Simulation Results
 
 All simulations were run across **5 PVT corners** (tt, ss, ff, fs, sf) at T = 27°C, V<sub>DD</sub> = 1.8 V unless noted. Monte Carlo used N = 200 runs with SKY130 mismatch models.
