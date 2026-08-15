@@ -1,0 +1,127 @@
+
+Note: Compatibility modes selected: hs a
+
+
+Circuit: ** sch_path: /home/nithin/eda/sky130_design_ips/otas/rail_to_rail_ota_inp_ip/single_ended/with_internal_bias/tb_rail_to_rail_ip_op_ota_int_bias_dc_tran_psrr.sch
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+ Reference value :  0.00000e+00
+No. of Data Rows : 1
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+gnda                                         0
+en                                         1.8
+vout                                  0.899925
+vicm                                       0.9
+vdd                                        1.8
+net1                                  0.479987
+x2.net2                               0.221487
+x2.net8                               0.752624
+x2.vbn_casc                           0.926688
+x2.net1                                0.21956
+x2.net5                               0.648229
+x2.vbp_casc                           0.596393
+x2.net4                                1.56196
+x2.net3                                 1.5603
+x2.net6                               0.363157
+x2.net7                                1.42537
+x2.net9                               0.641708
+x2.net16                             0.0175462
+x2.net11                                1.7427
+x2.net17                             0.0365427
+x2.net18                             0.0574281
+x2.net10                               1.66394
+x2.net19                             0.0809086
+x2.net20                              0.108251
+x2.net21                              0.142157
+x2.net22                               0.19078
+x2.en_b                            3.09986e-07
+x2.vbp_top                            0.701331
+x2.net12                             0.0460924
+x2.net23                             0.0409711
+x2.xr14.x0.t1                        0.0410078
+x2.xr14.x0.t2                        0.0460558
+x2.net24                             0.0358498
+x2.xr15.x0.t1                        0.0358864
+x2.xr15.x0.t2                        0.0409345
+x2.net25                             0.0307284
+x2.xr16.x0.t1                        0.0307651
+x2.xr16.x0.t2                        0.0358131
+x2.net26                             0.0256071
+x2.xr17.x0.t1                        0.0256437
+x2.xr17.x0.t2                        0.0306918
+x2.net27                             0.0204857
+x2.xr18.x0.t1                        0.0205223
+x2.xr18.x0.t2                        0.0255704
+x2.net28                             0.0153643
+x2.xr19.x0.t1                        0.0154009
+x2.xr19.x0.t2                         0.020449
+x2.net29                             0.0102429
+x2.xr20.x0.t1                        0.0102795
+x2.xr20.x0.t2                        0.0153276
+x2.net30                            0.00512144
+x2.xr21.x0.t1                        0.0051581
+x2.xr21.x0.t2                        0.0102062
+x2.xr22.x0.t1                      3.66657e-05
+x2.xr22.x0.t2                       0.00508477
+x2.vstrp_ip                            1.78663
+x2.net31                              0.743305
+x2.net32                              0.600422
+x2.net33                              0.491845
+x2.net34                              0.400405
+x2.net35                              0.319704
+x2.net36                              0.246533
+x2.net37                              0.179011
+x2.net38                              0.115931
+x2.net39                             0.0564608
+x2.vstrp_out                               1.8
+x2.net15                                   1.8
+x2.net40                                   1.8
+x2.xr24.x0.t1                              1.8
+x2.xr24.x0.t2                              1.8
+x2.net41                                   1.8
+x2.xr25.x0.t1                              1.8
+x2.xr25.x0.t2                              1.8
+x2.net42                                   1.8
+x2.xr26.x0.t1                              1.8
+x2.xr26.x0.t2                              1.8
+x2.net43                                   1.8
+x2.xr27.x0.t1                              1.8
+x2.xr27.x0.t2                              1.8
+x2.net44                                   1.8
+x2.xr28.x0.t1                              1.8
+x2.xr28.x0.t2                              1.8
+x2.net45                                   1.8
+x2.xr29.x0.t1                              1.8
+x2.xr29.x0.t2                              1.8
+x2.net46                                   1.8
+x2.xr30.x0.t1                              1.8
+x2.xr30.x0.t2                              1.8
+x2.net47                                   1.8
+x2.xr31.x0.t1                              1.8
+x2.xr31.x0.t2                              1.8
+x2.xr34.x0.t1                              1.8
+x2.xr34.x0.t2                              1.8
+x2.net14                           3.95331e-07
+x2.net13                            2.3002e-10
+v4#branch                         -2.60128e-05
+v2#branch                                    0
+v5#branch                                    0
+v3#branch                          -4.1903e-12
+
+
+No. of Data Rows : 103
+Note: Simulation executed from .control section 

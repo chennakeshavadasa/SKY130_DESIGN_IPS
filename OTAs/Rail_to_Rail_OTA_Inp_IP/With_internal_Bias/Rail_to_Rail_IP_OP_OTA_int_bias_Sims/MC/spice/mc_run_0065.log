@@ -1,0 +1,16 @@
+
+Note: Compatibility modes selected: hs a
+
+
+Circuit: ** sch_path: /home/nithin/eda/sky130_design_ips/otas/rail_to_rail_ota_inp_ip/single_ended/with_internal_bias/tb_rail_to_rail_ip_op_ota_int_bias_mc.sch
+
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+option SCALE: Scale is set to 1e-06 for instance and model parameters
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+ Reference value :  0.00000e+00
+No. of Data Rows : 1
+Note: Simulation executed from .control section 

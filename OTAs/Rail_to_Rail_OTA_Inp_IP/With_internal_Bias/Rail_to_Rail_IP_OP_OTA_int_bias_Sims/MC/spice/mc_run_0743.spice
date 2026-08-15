@@ -1,0 +1,440 @@
+** sch_path: /home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/Single_ended/With_internal_Bias/tb_Rail_to_Rail_IP_OP_OTA_int_bias_MC.sch
+.lib /home/nithin/.ciel/sky130A/libs.tech/combined/sky130.lib.spice tt_mm
+.include /home/nithin/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice
+
+**.subckt tb_Rail_to_Rail_IP_OP_OTA_int_bias_MC
+V3 GNDA 0 0
+V5 EN GNDA 1.8
+C1 Vout GNDA 10p
+V2 VICM GNDA 0.9
+V4 VDD GNDA dc 1.8 ac 1
+C2 net1 GNDA 1p
+x2 VDD EN Vout Vout VICM net1 GNDA Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias
+**** begin user architecture code
+
+
+
+.save @m.x1.xmn_bot_l2.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_bot_l2.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_bot_l2.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_bot_l2.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_bot_l2.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_bot_l2.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_bot_l2.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmn_casc_l2.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_casc_l2.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_casc_l2.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_casc_l2.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_casc_l2.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_casc_l2.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_casc_l2.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmn_bot_l1.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_bot_l1.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_bot_l1.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_bot_l1.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_bot_l1.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_bot_l1.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_bot_l1.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmn_casc_l1.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_casc_l1.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_casc_l1.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_casc_l1.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_casc_l1.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_casc_l1.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_casc_l1.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmp_casc_l2.msky130_fd_pr__pfet_01v8[gm]
+.save @m.x1.xmp_casc_l2.msky130_fd_pr__pfet_01v8[gds]
+.save @m.x1.xmp_casc_l2.msky130_fd_pr__pfet_01v8[vth]
+.save @m.x1.xmp_casc_l2.msky130_fd_pr__pfet_01v8[vdsat]
+.save @m.x1.xmp_casc_l2.msky130_fd_pr__pfet_01v8[cgg]
+.save @m.x1.xmp_casc_l2.msky130_fd_pr__pfet_01v8[cgso]
+.save @m.x1.xmp_casc_l2.msky130_fd_pr__pfet_01v8[cgdo]
+.save @m.x1.xmp_casc_l1.msky130_fd_pr__pfet_01v8[gm]
+.save @m.x1.xmp_casc_l1.msky130_fd_pr__pfet_01v8[gds]
+.save @m.x1.xmp_casc_l1.msky130_fd_pr__pfet_01v8[vth]
+.save @m.x1.xmp_casc_l1.msky130_fd_pr__pfet_01v8[vdsat]
+.save @m.x1.xmp_casc_l1.msky130_fd_pr__pfet_01v8[cgg]
+.save @m.x1.xmp_casc_l1.msky130_fd_pr__pfet_01v8[cgso]
+.save @m.x1.xmp_casc_l1.msky130_fd_pr__pfet_01v8[cgdo]
+.save @m.x1.xmp_top_l1.msky130_fd_pr__pfet_01v8[gm]
+.save @m.x1.xmp_top_l1.msky130_fd_pr__pfet_01v8[gds]
+.save @m.x1.xmp_top_l1.msky130_fd_pr__pfet_01v8[vth]
+.save @m.x1.xmp_top_l1.msky130_fd_pr__pfet_01v8[vdsat]
+.save @m.x1.xmp_top_l1.msky130_fd_pr__pfet_01v8[cgg]
+.save @m.x1.xmp_top_l1.msky130_fd_pr__pfet_01v8[cgso]
+.save @m.x1.xmp_top_l1.msky130_fd_pr__pfet_01v8[cgdo]
+.save @m.x1.xmn_a1.msky130_fd_pr__nfet_01v8_lvt[gm]
+.save @m.x1.xmn_a1.msky130_fd_pr__nfet_01v8_lvt[gds]
+.save @m.x1.xmn_a1.msky130_fd_pr__nfet_01v8_lvt[vth]
+.save @m.x1.xmn_a1.msky130_fd_pr__nfet_01v8_lvt[vdsat]
+.save @m.x1.xmn_a1.msky130_fd_pr__nfet_01v8_lvt[cgg]
+.save @m.x1.xmn_a1.msky130_fd_pr__nfet_01v8_lvt[cgso]
+.save @m.x1.xmn_a1.msky130_fd_pr__nfet_01v8_lvt[cgdo]
+.save @m.x1.xmn_a2.msky130_fd_pr__nfet_01v8_lvt[gm]
+.save @m.x1.xmn_a2.msky130_fd_pr__nfet_01v8_lvt[gds]
+.save @m.x1.xmn_a2.msky130_fd_pr__nfet_01v8_lvt[vth]
+.save @m.x1.xmn_a2.msky130_fd_pr__nfet_01v8_lvt[vdsat]
+.save @m.x1.xmn_a2.msky130_fd_pr__nfet_01v8_lvt[cgg]
+.save @m.x1.xmn_a2.msky130_fd_pr__nfet_01v8_lvt[cgso]
+.save @m.x1.xmn_a2.msky130_fd_pr__nfet_01v8_lvt[cgdo]
+.save @m.x1.xmp_a1.msky130_fd_pr__pfet_01v8_lvt[gm]
+.save @m.x1.xmp_a1.msky130_fd_pr__pfet_01v8_lvt[gds]
+.save @m.x1.xmp_a1.msky130_fd_pr__pfet_01v8_lvt[vth]
+.save @m.x1.xmp_a1.msky130_fd_pr__pfet_01v8_lvt[vdsat]
+.save @m.x1.xmp_a1.msky130_fd_pr__pfet_01v8_lvt[cgg]
+.save @m.x1.xmp_a1.msky130_fd_pr__pfet_01v8_lvt[cgso]
+.save @m.x1.xmp_a1.msky130_fd_pr__pfet_01v8_lvt[cgdo]
+.save @m.x1.xmp_a2.msky130_fd_pr__pfet_01v8_lvt[gm]
+.save @m.x1.xmp_a2.msky130_fd_pr__pfet_01v8_lvt[gds]
+.save @m.x1.xmp_a2.msky130_fd_pr__pfet_01v8_lvt[vth]
+.save @m.x1.xmp_a2.msky130_fd_pr__pfet_01v8_lvt[vdsat]
+.save @m.x1.xmp_a2.msky130_fd_pr__pfet_01v8_lvt[cgg]
+.save @m.x1.xmp_a2.msky130_fd_pr__pfet_01v8_lvt[cgso]
+.save @m.x1.xmp_a2.msky130_fd_pr__pfet_01v8_lvt[cgdo]
+.save @m.x1.xmp_pdiff_bias.msky130_fd_pr__pfet_01v8[gm]
+.save @m.x1.xmp_pdiff_bias.msky130_fd_pr__pfet_01v8[gds]
+.save @m.x1.xmp_pdiff_bias.msky130_fd_pr__pfet_01v8[vth]
+.save @m.x1.xmp_pdiff_bias.msky130_fd_pr__pfet_01v8[vdsat]
+.save @m.x1.xmp_pdiff_bias.msky130_fd_pr__pfet_01v8[cgg]
+.save @m.x1.xmp_pdiff_bias.msky130_fd_pr__pfet_01v8[cgso]
+.save @m.x1.xmp_pdiff_bias.msky130_fd_pr__pfet_01v8[cgdo]
+.save @m.x1.xmn_ndiff_bias.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_ndiff_bias.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_ndiff_bias.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_ndiff_bias.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_ndiff_bias.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_ndiff_bias.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_ndiff_bias.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmp_pdiff_bias_b.msky130_fd_pr__pfet_01v8[gm]
+.save @m.x1.xmp_pdiff_bias_b.msky130_fd_pr__pfet_01v8[gds]
+.save @m.x1.xmp_pdiff_bias_b.msky130_fd_pr__pfet_01v8[vth]
+.save @m.x1.xmp_pdiff_bias_b.msky130_fd_pr__pfet_01v8[vdsat]
+.save @m.x1.xmp_pdiff_bias_b.msky130_fd_pr__pfet_01v8[cgg]
+.save @m.x1.xmp_pdiff_bias_b.msky130_fd_pr__pfet_01v8[cgso]
+.save @m.x1.xmp_pdiff_bias_b.msky130_fd_pr__pfet_01v8[cgdo]
+.save @m.x1.xmp_top_l2.msky130_fd_pr__pfet_01v8[gm]
+.save @m.x1.xmp_top_l2.msky130_fd_pr__pfet_01v8[gds]
+.save @m.x1.xmp_top_l2.msky130_fd_pr__pfet_01v8[vth]
+.save @m.x1.xmp_top_l2.msky130_fd_pr__pfet_01v8[vdsat]
+.save @m.x1.xmp_top_l2.msky130_fd_pr__pfet_01v8[cgg]
+.save @m.x1.xmp_top_l2.msky130_fd_pr__pfet_01v8[cgso]
+.save @m.x1.xmp_top_l2.msky130_fd_pr__pfet_01v8[cgdo]
+.save @m.x1.xmn_bias_source.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_bias_source.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_bias_source.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_bias_source.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_bias_source.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_bias_source.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_bias_source.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmn_bias_ext.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_bias_ext.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_bias_ext.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_bias_ext.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_bias_ext.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_bias_ext.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_bias_ext.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmp_casc_b_source.msky130_fd_pr__pfet_01v8[gm]
+.save @m.x1.xmp_casc_b_source.msky130_fd_pr__pfet_01v8[gds]
+.save @m.x1.xmp_casc_b_source.msky130_fd_pr__pfet_01v8[vth]
+.save @m.x1.xmp_casc_b_source.msky130_fd_pr__pfet_01v8[vdsat]
+.save @m.x1.xmp_casc_b_source.msky130_fd_pr__pfet_01v8[cgg]
+.save @m.x1.xmp_casc_b_source.msky130_fd_pr__pfet_01v8[cgso]
+.save @m.x1.xmp_casc_b_source.msky130_fd_pr__pfet_01v8[cgdo]
+.save @m.x1.xmn_casc_bias8.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_casc_bias8.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_casc_bias8.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_casc_bias8.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_casc_bias8.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_casc_bias8.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_casc_bias8.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmn_casc_b_source.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_casc_b_source.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_casc_b_source.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_casc_b_source.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_casc_b_source.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_casc_b_source.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_casc_b_source.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmp_casc_bias1.msky130_fd_pr__pfet_01v8[gm]
+.save @m.x1.xmp_casc_bias1.msky130_fd_pr__pfet_01v8[gds]
+.save @m.x1.xmp_casc_bias1.msky130_fd_pr__pfet_01v8[vth]
+.save @m.x1.xmp_casc_bias1.msky130_fd_pr__pfet_01v8[vdsat]
+.save @m.x1.xmp_casc_bias1.msky130_fd_pr__pfet_01v8[cgg]
+.save @m.x1.xmp_casc_bias1.msky130_fd_pr__pfet_01v8[cgso]
+.save @m.x1.xmp_casc_bias1.msky130_fd_pr__pfet_01v8[cgdo]
+.save @m.x1.xmn_casc_bias7.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_casc_bias7.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_casc_bias7.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_casc_bias7.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_casc_bias7.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_casc_bias7.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_casc_bias7.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmn_casc_bias6.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_casc_bias6.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_casc_bias6.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_casc_bias6.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_casc_bias6.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_casc_bias6.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_casc_bias6.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmp_casc_bias2.msky130_fd_pr__pfet_01v8[gm]
+.save @m.x1.xmp_casc_bias2.msky130_fd_pr__pfet_01v8[gds]
+.save @m.x1.xmp_casc_bias2.msky130_fd_pr__pfet_01v8[vth]
+.save @m.x1.xmp_casc_bias2.msky130_fd_pr__pfet_01v8[vdsat]
+.save @m.x1.xmp_casc_bias2.msky130_fd_pr__pfet_01v8[cgg]
+.save @m.x1.xmp_casc_bias2.msky130_fd_pr__pfet_01v8[cgso]
+.save @m.x1.xmp_casc_bias2.msky130_fd_pr__pfet_01v8[cgdo]
+.save @m.x1.xmp_casc_bias3.msky130_fd_pr__pfet_01v8[gm]
+.save @m.x1.xmp_casc_bias3.msky130_fd_pr__pfet_01v8[gds]
+.save @m.x1.xmp_casc_bias3.msky130_fd_pr__pfet_01v8[vth]
+.save @m.x1.xmp_casc_bias3.msky130_fd_pr__pfet_01v8[vdsat]
+.save @m.x1.xmp_casc_bias3.msky130_fd_pr__pfet_01v8[cgg]
+.save @m.x1.xmp_casc_bias3.msky130_fd_pr__pfet_01v8[cgso]
+.save @m.x1.xmp_casc_bias3.msky130_fd_pr__pfet_01v8[cgdo]
+.save @m.x1.xmn_casc_bias5.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_casc_bias5.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_casc_bias5.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_casc_bias5.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_casc_bias5.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_casc_bias5.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_casc_bias5.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmn_casc_bias4.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_casc_bias4.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_casc_bias4.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_casc_bias4.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_casc_bias4.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_casc_bias4.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_casc_bias4.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmn_casc_bias3.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_casc_bias3.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_casc_bias3.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_casc_bias3.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_casc_bias3.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_casc_bias3.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_casc_bias3.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmn_casc_bias1.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_casc_bias1.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_casc_bias1.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_casc_bias1.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_casc_bias1.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_casc_bias1.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_casc_bias1.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmn_casc_bias2.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_casc_bias2.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_casc_bias2.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_casc_bias2.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_casc_bias2.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_casc_bias2.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_casc_bias2.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmn_sw1.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_sw1.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_sw1.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_sw1.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_sw1.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_sw1.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_sw1.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmp_sw1.msky130_fd_pr__pfet_01v8[gm]
+.save @m.x1.xmp_sw1.msky130_fd_pr__pfet_01v8[gds]
+.save @m.x1.xmp_sw1.msky130_fd_pr__pfet_01v8[vth]
+.save @m.x1.xmp_sw1.msky130_fd_pr__pfet_01v8[vdsat]
+.save @m.x1.xmp_sw1.msky130_fd_pr__pfet_01v8[cgg]
+.save @m.x1.xmp_sw1.msky130_fd_pr__pfet_01v8[cgso]
+.save @m.x1.xmp_sw1.msky130_fd_pr__pfet_01v8[cgdo]
+.save @m.x1.xmp_sw2.msky130_fd_pr__pfet_01v8[gm]
+.save @m.x1.xmp_sw2.msky130_fd_pr__pfet_01v8[gds]
+.save @m.x1.xmp_sw2.msky130_fd_pr__pfet_01v8[vth]
+.save @m.x1.xmp_sw2.msky130_fd_pr__pfet_01v8[vdsat]
+.save @m.x1.xmp_sw2.msky130_fd_pr__pfet_01v8[cgg]
+.save @m.x1.xmp_sw2.msky130_fd_pr__pfet_01v8[cgso]
+.save @m.x1.xmp_sw2.msky130_fd_pr__pfet_01v8[cgdo]
+.save @m.x1.xmn_sw2.msky130_fd_pr__nfet_01v8[gm]
+.save @m.x1.xmn_sw2.msky130_fd_pr__nfet_01v8[gds]
+.save @m.x1.xmn_sw2.msky130_fd_pr__nfet_01v8[vth]
+.save @m.x1.xmn_sw2.msky130_fd_pr__nfet_01v8[vdsat]
+.save @m.x1.xmn_sw2.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.x1.xmn_sw2.msky130_fd_pr__nfet_01v8[cgso]
+.save @m.x1.xmn_sw2.msky130_fd_pr__nfet_01v8[cgdo]
+.save @m.x1.xmp_sw3.msky130_fd_pr__pfet_01v8[gm]
+.save @m.x1.xmp_sw3.msky130_fd_pr__pfet_01v8[gds]
+.save @m.x1.xmp_sw3.msky130_fd_pr__pfet_01v8[vth]
+.save @m.x1.xmp_sw3.msky130_fd_pr__pfet_01v8[vdsat]
+.save @m.x1.xmp_sw3.msky130_fd_pr__pfet_01v8[cgg]
+.save @m.x1.xmp_sw3.msky130_fd_pr__pfet_01v8[cgso]
+.save @m.x1.xmp_sw3.msky130_fd_pr__pfet_01v8[cgdo]
+
+
+
+
+.option gmin=1e-18
+.options savecurrents
+.save all
+.temp=27
+.control
+save all
+op
+let DIFF_MIS = v(VICM) - v(Vout)
+set appendwrite
+wrdata /home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/Single_ended/With_internal_Bias/Rail_to_Rail_IP_OP_OTA_int_bias_Sims/MC/csv_results/mc_results.csv v(DIFF_MIS)
+.endc
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:
+*+  /home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/Single_ended/With_internal_Bias/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sym # of pins=7
+** sym_path: /home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/Single_ended/With_internal_Bias/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sym
+** sch_path: /home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/Single_ended/With_internal_Bias/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sch
+.subckt Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias VDD EN VINN VOUT VINP MN_TAIL_BIAS GNDA
+*.ipin VINP
+*.ipin VINN
+*.ipin VDD
+*.ipin GNDA
+*.opin VOUT
+*.ipin EN
+*.iopin MN_TAIL_BIAS
+XMN_BOT_L2 net2 net8 GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=6 m=6
+XMN_CASC_L2 VOUT VBN_CASC net2 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58
++ sa=0 sb=0 sd=0 mult=3 m=3
+XMN_BOT_L1 net1 net8 GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=6 m=6
+XMN_CASC_L1 net5 VBN_CASC net1 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58
++ sa=0 sb=0 sd=0 mult=3 m=3
+XMP_CASC_L2 VOUT VBP_CASC net4 VDD sky130_fd_pr__pfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58
++ sa=0 sb=0 sd=0 mult=8 m=8
+XMP_CASC_L1 net5 VBP_CASC net3 VDD sky130_fd_pr__pfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58
++ sa=0 sb=0 sd=0 mult=8 m=8
+XMP_TOP_L1 net3 net5 VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0
++ sd=0 mult=6 m=6
+XMN_A1 net3 VINP net6 GND sky130_fd_pr__nfet_01v8_lvt L=2 W=2.5 nf=1 ad=0.725 as=0.725 pd=5.58 ps=5.58 nrd=0.116 nrs=0.116 sa=0
++ sb=0 sd=0 mult=8 m=8
+XMN_A2 net4 VINN net6 GND sky130_fd_pr__nfet_01v8_lvt L=2 W=2.5 nf=1 ad=0.725 as=0.725 pd=5.58 ps=5.58 nrd=0.116 nrs=0.116 sa=0
++ sb=0 sd=0 mult=8 m=8
+XMP_A1 net1 VINP net7 VDD sky130_fd_pr__pfet_01v8_lvt L=2 W=4 nf=1 ad=1.16 as=1.16 pd=8.58 ps=8.58 nrd=0.0725 nrs=0.0725 sa=0 sb=0
++ sd=0 mult=28 m=28
+XMP_A2 net2 VINN net7 VDD sky130_fd_pr__pfet_01v8_lvt L=2 W=4 nf=1 ad=1.16 as=1.16 pd=8.58 ps=8.58 nrd=0.0725 nrs=0.0725 sa=0 sb=0
++ sd=0 mult=28 m=28
+XMP_PDIFF_BIAS net7 net9 VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0
++ sb=0 sd=0 mult=8 m=8
+XMN_NDIFF_BIAS net6 net8 GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0
++ sb=0 sd=0 mult=8 m=8
+XMP_PDIFF_BIAS_B net9 net9 VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0
++ sb=0 sd=0 mult=1
+XMP_TOP_L2 net4 net5 VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0
++ sd=0 mult=6 m=6
+XMN_BIAS_SOURCE net9 net8 GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0
++ sb=0 sd=0 mult=1
+XMN_BIAS_EXT net8 net8 GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0
++ sb=0 sd=0 mult=1
+XMP_CASC_B_SOURCE VBN_CASC net9 VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145
++ sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS8 net16 VBN_CASC GNDA GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_B_SOURCE VBP_CASC net8 GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMP_CASC_BIAS1 net11 VBP_CASC VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58
++ sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS7 net17 VBN_CASC net16 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS6 net18 VBN_CASC net17 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMP_CASC_BIAS2 net10 VBP_CASC net11 VDD sky130_fd_pr__pfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMP_CASC_BIAS3 VBP_CASC VBP_CASC net10 VDD sky130_fd_pr__pfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS5 net19 VBN_CASC net18 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS4 net20 VBN_CASC net19 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS3 net21 VBN_CASC net20 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS1 VBN_CASC VBN_CASC net22 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS2 net22 VBN_CASC net21 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_SW1 net8 EN_B GNDA GND sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0
++ mult=1
+XMP_SW1 net9 EN VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0 sd=0
++ mult=1
+XMP_SW2 VBP_CASC EN VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0
++ sd=0 mult=1
+XMN_SW2 VBN_CASC EN_B GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0
++ sd=0 mult=1
+XMP_SW3 net5 EN VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0 sd=0
++ mult=1
+.save v(vdd)
+.save v(net7)
+XM1 VBP_TOP MN_TAIL_BIAS net12 GND sky130_fd_pr__nfet_01v8 L=4 W=10 nf=1 ad=2.9 as=2.9 pd=20.58 ps=20.58 nrd=0.029 nrs=0.029 sa=0
++ sb=0 sd=0 mult=16 m=16
+XM3 VBP_TOP VBP_TOP VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0
++ sd=0 mult=1
+XM4 MN_TAIL_BIAS VBP_TOP VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0
++ sb=0 sd=0 mult=1
+XM10 MN_TAIL_BIAS MN_TAIL_BIAS GNDA GND sky130_fd_pr__nfet_01v8 L=4 W=10 nf=1 ad=2.9 as=2.9 pd=20.58 ps=20.58 nrd=0.029 nrs=0.029
++ sa=0 sb=0 sd=0 mult=4 m=4
+XM16 MN_TAIL_BIAS EN_B GNDA GND sky130_fd_pr__nfet_01v8 L=6.4 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0
++ sb=0 sd=0 mult=1
+XR14 net23 net12 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR15 net24 net23 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR16 net25 net24 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR17 net26 net25 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR18 net27 net26 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR19 net28 net27 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR20 net29 net28 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR21 net30 net29 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR22 GNDA net30 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XM15 VBP_TOP EN VDD VDD sky130_fd_pr__pfet_01v8 L=1 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0 sd=0
++ mult=1
+XM2 VSTRP_IP VBP_TOP VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0
++ sd=0 mult=7 m=7
+XM19 VSTRP_IP VDD net31 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM20 net31 VDD net32 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM21 net32 VDD net33 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM26 net33 VDD net34 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM27 net34 VDD net35 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM28 net35 VDD net36 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM29 net36 VDD net37 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM30 net37 VDD net38 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM31 net38 VDD net39 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM32 net39 VDD GNDA GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM12 MN_TAIL_BIAS VSTRP_OUT net15 VDD sky130_fd_pr__pfet_01v8 L=4 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58
++ sa=0 sb=0 sd=0 mult=1
+XR24 net40 VDD GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR25 net41 net40 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR26 net42 net41 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR27 net43 net42 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR28 net44 net43 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR29 net45 net44 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR30 net46 net45 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR31 net47 net46 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR34 net15 net47 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XM5 EN_B EN GNDA GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0
++ mult=1
+XM6 EN_B EN VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0
++ mult=1
+XM38 VSTRP_OUT net14 net13 GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0
++ sd=0 mult=1
+XM39 net13 EN GNDA GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0
++ mult=1
+XM42 net14 VSTRP_IP GNDA GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0
++ sd=0 mult=1
+XM43 net14 VSTRP_IP VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0
++ sd=0 mult=1
+XM13 VSTRP_OUT net14 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0
++ sd=0 mult=1
+XM14 VSTRP_OUT EN_B VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0
++ sd=0 mult=1
+XM9 net8 VBP_TOP VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0 sd=0
++ mult=2 m=2
+.ends
+
+.GLOBAL VDD
+.end
