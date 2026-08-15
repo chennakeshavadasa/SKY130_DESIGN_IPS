@@ -1,0 +1,63 @@
+
+============================================================
+  SKY130 Schmitt Trigger Optimizer  v7
+  Target: V_PH=1.6V  V_PL=1.4V  ±15mV
+============================================================
+
+  Physics diagnosis (from all previous runs):
+  ─────────────────────────────────────────────
+  At original sizing (mult=10):
+    V_PH = 1.63V  (+30mV — close)
+    V_PL = 1.04V  (-360mV — far)
+
+  Root cause: XM3 feedback 65µm eff vs XM6 feedback 1µm eff
+  → NMOS pull-down crushes V_PL
+
+  Fix sequence:
+    Step 1: Sweep W_eff3 = W3×M3 (reduce NMOS fb strength)
+            → raises V_PL, also raises V_PH slightly
+    Step 2: Sweep W6 upward (strengthen PMOS feedback)
+            → raises V_PL further if needed
+    Step 3: Trim V_PH with L4 bisection
+  
+── Baseline ─────────────────────────────────────────────────
+  #001 baseline                     ↑ V_PH=1.6155    #002 baseline                     ↓ V_PL=1.0576
+       → ePH=+0.0155  ePL=-0.3424
+
+── Step 1: Bisect W3 (NMOS fb width, M3=10 fixed) ──────────
+  Physics: W3↓ → NMOS feedback weaker → V_PL rises
+
+  Bisecting W3 [0.4200→6.5000] for V_PL=1.400
+  #003 W3=0.4200                    ↑ V_PH=1.4895    #004 W3=0.4200                    ↓ V_PL=1.0576
+       → ePH=-0.1105  ePL=-0.3424
+  #005 W3=6.5000                    ↑ V_PH=1.6155    #006 W3=6.5000                    ↓ V_PL=1.0576
+       → ePH=+0.0155  ePL=-0.3424
+  bracket: V_PL(W3=0.420)=1.0576  V_PL(W3=6.500)=1.0576
+  not bracketed — returning best end
+
+  After Step 1: V_PH=1.6155  V_PL=1.0576
+
+── Step 2: Bisect W6 (PMOS fb width) to boost V_PL ─────────
+  Physics: W6↑ → PMOS feedback stronger → V_PL rises
+
+  Bisecting W6 [1.0000→20.0000] for V_PL=1.400
+  #007 W6=1.0000                    ↑ V_PH=1.6155    #008 W6=1.0000                    ↓ V_PL=1.0576
+       → ePH=+0.0155  ePL=-0.3424
+  #009 W6=20.0000                   ↑ V_PH=1.6065    #010 W6=20.0000                   ↓ V_PL=0.8836
+       → ePH=+0.0065  ePL=-0.5164
+  bracket: V_PL(W6=1.000)=1.0576  V_PL(W6=20.000)=0.8836
+  not bracketed — returning best end
+
+  After Step 2: V_PH=1.6155  V_PL=1.0576
+
+── Step 3: Bisect L4 (PMOS length) to trim V_PH ────────────
+  V_PH=1.6155 needs reduction
+  Physics: L4↑ → PMOS weaker → V_PH changes
+
+  Bisecting L4 [0.1500→2.0000] for V_PH=1.600
+  #011 L4=0.1500                    ↑ V_PH=1.6155    #012 L4=0.1500                    ↓ V_PL=1.0576
+       → ePH=+0.0155  ePL=-0.3424
+  #013 L4=2.0000                    ↑ V_PH=1.2524    #014 L4=2.0000                    ↓ V_PL=0.6045
+       → ePH=-0.3476  ePL=-0.7955
+  bracket: V_PH(L4=0.150)=1.6155  V_PH(L4=2.000)=1.2524
+  #015 L4=1.0750                    ↑ 

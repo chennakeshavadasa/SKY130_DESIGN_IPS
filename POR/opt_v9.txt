@@ -1,0 +1,112 @@
+
+==============================================================
+  SKY130 Schmitt Trigger  v9  |  Multi-param combined push
+  Target: V_PH=1.6V  V_PL=1.4V  ±15mV
+==============================================================
+
+  From v8 scan — V_PL positive levers and their gains:
+    L6:  +0.078V  (XM6 longer, weaker pull-down)
+    W4:  +0.045V  (PMOS wider, net2 charges faster)
+    W1:  +0.012V  (series NMOS weaker)
+    L1:  +0.009V  (NMOS L longer)
+    W2:  +0.006V  (NMOS main narrower)
+    L2:  +0.003V  (NMOS main longer)
+  Sum if perfectly additive: ~0.153V → V_PL=1.21V (still not enough)
+  
+  Plan:
+    Step 0: Push all positive levers to extremes → measure ceiling
+    Step 1: Bisect L6 to hit V_PL (most V_PH-neutral lever)
+    Step 2: Bisect W4 to trim V_PH if needed
+    Step 3: If still short on V_PL, try larger M4 (more PMOS drive)
+  
+── Step 0a: Baseline ────────────────────────────────────────
+  #001 baseline                        ↑ V_PH=1.6155     #002 baseline                        ↓ V_PL=1.0576
+       ePH=+0.0155  ePL=-0.3424
+
+── Step 0b: All positive levers at extremes ─────────────────
+  #003 all-levers-max                  ↑ V_PH=1.7295     #004 all-levers-max                  ↓ V_PL=1.3641
+       ePH=+0.1295  ePL=-0.0359
+
+  Maximum achievable: V_PH=1.7295  V_PL=1.3641
+  V_PL ceiling vs target: 1.3641 vs 1.400  (STILL SHORT by 0.0359V ✗)
+
+  ╔══════════════════════════════════════════════════════════╗
+  ║  V_PL CEILING = 1.3641V  <  TARGET 1.400V              ║
+  ║                                                          ║
+  ║  This circuit CANNOT reach V_PL=1.40V by W/L tuning.    ║
+  ║                                                          ║
+  ║  Root cause: The 6T Schmitt topology with these device   ║
+  ║  roles (XM3=source-follower on net1, XM6=feedback on     ║
+  ║  net2) sets V_PL primarily by the PMOS threshold voltage  ║
+  ║  and the XM5 source-follower action on net2.             ║
+  ║                                                          ║
+  ║  V_PL ≈ VDD - |Vtp| - Vov(XM5)                          ║
+  ║       ≈ 1.8 - 0.6 - ~0.14 ≈ 1.06V  (matches sim!)      ║
+  ║                                                          ║
+  ║  To get V_PL=1.40V you need EITHER:                      ║
+  ║    A) Add a resistor/current source to net2              ║
+  ║    B) Use a different Schmitt topology                   ║
+  ║    C) Change the target (V_PL=1.0-1.1V is achievable)   ║
+  ║    D) Use body biasing on XM5/XM6                       ║
+  ╚══════════════════════════════════════════════════════════╝
+        
+  Finding best achievable sizing anyway...
+
+── Step 1: Bisect L6 for best V_PL ─────────────────────────
+
+  Bisect L6 [0.1500→10.0000] targeting V_PL=1.400
+  #005 L6=0.150                        ↑ V_PH=1.7175     #006 L6=0.150                        ↓ V_PL=1.1506
+       ePH=+0.1175  ePL=-0.2494
+  #007 L6=10.000                       ↑ V_PH=1.7295     #008 L6=10.000                       ↓ V_PL=1.3641
+       ePH=+0.1295  ePL=-0.0359
+  bracket: V_PL=1.1506 @ 0.150   V_PL=1.3641 @ 10.000
+  NOT BRACKETED [1.1506,1.3641] — returning best
+
+  After L6 bisect: V_PH=1.7295  V_PL=1.3641
+
+── Step 2: Try M4 increase (more PMOS drive on net2) ────────
+  #009 M4=15                           ↑ V_PH=1.7385     #010 M4=15                           ↓ V_PL=1.3881
+       ePH=+0.1385  ePL=-0.0119
+  M4=15: V_PH=1.7385  V_PL=1.3881  ΔV_PL=+0.0241
+
+  Bisect L6 [0.1500→10.0000] targeting V_PL=1.400
+  #011 L6=0.150                        ↑ V_PH=1.7295     #012 L6=0.150                        ↓ V_PL=1.1775
+       ePH=+0.1295  ePL=-0.2225
+  #013 L6=10.000                       ↑ V_PH=1.7385     #014 L6=10.000                       ↓ V_PL=1.3881
+       ePH=+0.1385  ePL=-0.0119
+  bracket: V_PL=1.1775 @ 0.150   V_PL=1.3881 @ 10.000
+  NOT BRACKETED [1.1775,1.3881] — returning best
+
+── Step 3: Trim V_PH with W4 ────────────────────────────────
+
+  Bisect W4 [16.0000→40.0000] targeting V_PH=1.600
+  #015 W4=16.000                       ↑ V_PH=1.7205     #016 W4=16.000                       ↓ V_PL=1.3341
+       ePH=+0.1205  ePL=-0.0659
+  #017 W4=40.000                       ↑ V_PH=1.7385     #018 W4=40.000                       ↓ V_PL=1.3881
+       ePH=+0.1385  ePL=-0.0119
+  bracket: V_PH=1.7205 @ 16.000   V_PH=1.7385 @ 40.000
+  NOT BRACKETED [1.7205,1.7385] — returning best
+
+==============================================================
+  ✗ Best effort  (18 ngspice calls)
+  V_PH = 1.7205 V  (err +0.1205 V)
+  V_PL = 1.3341 V  (err -0.0659 V)
+
+  Final sizing:
+  * XM1: W=0.4200µm  L=8.0000µm  mult=1  (nom: W=1.0 L=2.5 m=1)
+  * XM2: W=0.4200µm  L=8.0000µm  mult=1  (nom: W=5.0 L=2.5 m=1)
+    XM3: W=6.5000µm  L=0.1500µm  mult=10  (nom: W=6.5 L=0.15 m=10)
+  * XM4: W=16.0000µm  L=0.1500µm  mult=15  (nom: W=16.0 L=0.15 m=10)
+  * XM6: W=1.0000µm  L=10.0000µm  mult=1  (nom: W=1.0 L=0.15 m=1)
+    XM5 = XM4
+
+  Physics of V_PL ceiling:
+    V_PL ≈ VDD - |Vtp| - Vov(XM5)
+         ≈ 1.8 - 0.6 - 0.14 ≈ 1.06V
+    Matches simulation (1.0576V at nominal) ✓
+
+    To raise V_PL above 1.06V requires changing |Vtp|
+    (not possible by W/L) or restructuring the net2 drive circuit.
+    
+==============================================================
+

@@ -1,0 +1,70 @@
+=== Running ngspice ===
+--- stdout ---
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** debug raw
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+ Reference value :  0.00000e+00
+No. of Data Rows : 361
+binary raw file "tmp_dbg.raw"
+Note: Simulation executed from .control section 
+
+--- stderr (last 10 lines) ---
+Error opening osdi lib "/home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/psp103_nqs.osdi": No such file or directory!
+Error: Library /home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/psp103_nqs.osdi couldn't be loaded!
+Error opening osdi lib "/home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/r3_cmc.osdi": No such file or directory!
+Error: Library /home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/r3_cmc.osdi couldn't be loaded!
+Error opening osdi lib "/home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/mosvar.osdi": No such file or directory!
+Error: Library /home/nithin/.ciel/sky130A/libs.tech/ngspice/osdi/mosvar.osdi couldn't be loaded!
+Warning: OSDI libs have not been loaded successfully.
+    Any of the following steps may fail, if Verilog A models are involved!.
+
+=== RAW file exists: True ===
+Total lines: 164
+--- First 40 lines ---
+  0: 'Title: ** debug raw\n'
+  1: 'Date: Sat Jun  6 12:05:31  2026\n'
+  2: 'Command: ngspice-46+, Build Wed Apr 22 19:56:39 UTC 2026\n'
+  3: 'Plotname: DC transfer characteristic\n'
+  4: 'Flags: real\n'
+  5: 'No. Variables: 3\n'
+  6: 'No. Points: 361\n'
+  7: 'Variables:\n'
+  8: '\t0\tv(v-sweep)\tvoltage\n'
+  9: '\t1\tv(vin)\tvoltage\n'
+ 10: '\t2\tv(vout)\tvoltage\n'
+ 11: 'Binary:\n'
+ 12: '\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00R�����?{\x14�G�zt?{\x14�G�zt?�ܔ����?{\x14�G�z�?{\x14�G�z�?�\x1e�����?�\x1e��Q��?�\x1e��Q��?��ָ���?{\x14�G�z�?{\x14�G�z�?ԃ�����?�������?�������?ne�����?�\x1e��Q��?�\x1e��Q��?K\x1b�����?�Q�\x1e��?�Q�\x1e��?\x03������?{\x14�G�z�?{\x14�G�z�?�\u20f8���?\n'
+ 13: 'ףp=\n'
+ 14: '�?\n'
+ 15: 'ףp=\n'
+ 16: '�?��t����?�������?�������?��e����?(\\���(�?(\\���(�?]eV����?�\x1e��Q��?�\x1e��Q��?��F����?�p=\n'
+ 17: 'ף�?�p=\n'
+ 18: 'ף�?��6����?�Q�\x1e��?�Q�\x1e��?��&����?333333�?333333�?�}\x16����?{\x14�G�z�?{\x14�G�z�?��\x05����?��(\\�µ?��(\\�µ?$\x13�����?\x0bףp=\n'
+ 19: '�?\x0bףp=\n'
+ 20: '�?������?S�\x1e��Q�?S�\x1e��Q�?��ҷ���?�������?�������?7\x07�����?�z\x14�G�?�z\x14�G�?R&�����?+\\���(�?+\\���(�?C������?s=\n'
+ 21: 'ףp�?s=\n'
+ 22: 'ףp�?X������?�\x1e��Q��?�\x1e��Q��?+�w����?\x01\x00\x00\x00\x00\x00�?\x01\x00\x00\x00\x00\x00�?G�d����?�p=\n'
+ 23: 'ף�?�p=\n'
+ 24: 'ף�?x�Q����?I�z\x14�G�?I�z\x14�G�?��=����?�Q�\x1e���?�Q�\x1e���?�\x15*����?���(\\��?���(\\��?��\x15����?533333�?533333�?K^\x01����?٣p=\n'
+ 25: '��?٣p=\n'
+ 26: '��?������?}\x14�G�z�?}\x14�G�z�?4`\u05f6���?!��Q�\x1e�?!��Q�\x1e�?;������?��(\\���?��(\\���?\x1e\x0e�����?ifffff�?ifffff�?\x08╶���?\n'
+ 27: 'ףp=\n'
+ 28: '�?\n'
+ 29: 'ףp=\n'
+ 30: '�?E\\\x7f����?�G�z\x14��?�G�z\x14��?#{h����?U�\x1e��Q�?U�\x1e��Q�?�<Q����?�(\\����?�(\\����?��9����?�������?�������?��!����?A\n'
+ 31: 'ףp=�?A\n'
+ 32: 'ףp=�?+A\t����?�z\x14�G��?�z\x14�G��?,|����?��Q�\x1e��?��Q�\x1e��?�P\u05f5���?-\\���(�?-\\���(�?�������?�������?�������?�������?u=\n'
+ 33: 'ףp�?u=\n'
+ 34: 'ףp�?�R�����?\x19�G�z\x14�?\x19�G�z\x14�?�xn����?�\x1e��Q��?�\x1e��Q��?H-S����?a���(\\�?a���(\\�?�n7����?\x02\x00\x00\x00\x00\x00�?\x02\x00\x00\x00\x00\x00�?�9\x1b����?T�\x1e��Q�?T�\x1e��Q�?.������?�p=\n'
+ 35: 'ף�?�p=\n'
+ 36: 'ף�?�e����?�(\\����?�(\\����?��ô���?J�z\x14�G�?J�z\x14�G�?�������?�������?�������?*����?�Q�\x1e���?�Q�\x1e���?4�g����?@\n'
+ 37: 'ףp=�?@\n'
+ 38: "ףp=�?�\x11H����?���(\\��?���(\\��?��'����?�z\x14�G��?�z\x14�G��?�\x01\x07����?633333�?633333�?(�����?��Q�\x1e��?��Q�\x1e��?|�ó���?ڣp=\n"
+ 39: '��?ڣp=\n'
+--- Lines around 'Values:' ---

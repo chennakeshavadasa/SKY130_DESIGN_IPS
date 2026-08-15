@@ -1,0 +1,14 @@
+
+==============================================================
+  Bayesian Optimization for Analog Circuit Sizing
+  Target: V_PH=1.600V  V_PL=1.400V  ±15mV
+  Kernel: matern  init=5  iter=40
+  Mode: LIVE ngspice
+==============================================================
+
+── LHS Initialization (5 sims) ─────────────────────────
+  [1/5] sim...   [1/5] V_PH=1.3515  V_PL=0.9617  ePH=-0.2485  ePL=-0.4383
+  [2/5] sim...   [2/5] V_PH=1.3545  V_PL=0.8535  ePH=-0.2455  ePL=-0.5465
+  [3/5] sim...   [3/5] V_PH=1.2405  V_PL=0.8446  ePH=-0.3595  ePL=-0.5554
+  [4/5] sim...   [4/5] V_PH=1.3665  V_PL=0.8836  ePH=-0.2335  ePL=-0.5164
+  [5/5] sim... 

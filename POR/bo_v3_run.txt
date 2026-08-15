@@ -1,0 +1,893 @@
+  [Realistic mode: V_PH=1.60V V_PL=1.05V ±15mV]
+
+==============================================================
+  Bayesian Optimization  v2  (Fixed EI + Realistic Targets)
+  Target: V_PH=1.600V  V_PL=1.050V  ±15mV
+  seed=13  init=5  iter=35
+==============================================================
+
+── LHS Initialization (5 sims) ─────────────────────────
+  [1/5] sim... V_PH=1.3450  V_PL=0.8446  ePH=-0.2550  ePL=-0.2054  (51s)
+  [2/5] sim... V_PH=1.4650  V_PL=1.0338  ePH=-0.1350  ePL=-0.0162  (46s)
+  [3/5] sim... V_PH=1.3550  V_PL=0.9286  ePH=-0.2450  ePL=-0.1214  (55s)
+  [4/5] sim... V_PH=1.3550  V_PL=1.0127  ePH=-0.2450  ePL=-0.0373  (52s)
+  [5/5] sim... /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+V_PH=1.3350  V_PL=0.8595  ePH=-0.2650  ePL=-0.1905  (46s)
+
+── Bayesian Optimization (35 iters) ─────────────────────
+   It      V_PH      V_PL       ePH       ePL            EI  time
+  ──────────────────────────────────────────────────────────────────────
+    1  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4850    1.0606   -0.1150   +0.0106      0.000001  52s
+    2  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4950    1.1148   -0.1050   +0.0648      0.000178  51s
+    3  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.3750    0.9526   -0.2250   -0.0974      0.000011  53s
+    4  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.3550    0.9527   -0.2450   -0.0973      0.000001  48s
+    5  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.3350    0.8295   -0.2650   -0.2205      0.000000  49s
+    6  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.5450    0.9825   -0.0550   -0.0675      0.000188  50s
+    7  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.3950    0.9106   -0.2050   -0.1394      0.000000  46s
+    8  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4850    1.0246   -0.1150   -0.0254      0.000000  46s
+    9  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4050    0.9286   -0.1950   -0.1214      0.000000  48s
+   10  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.5150    1.1028   -0.0850   +0.0528      0.000000  47s
+   11  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.3950    0.9587   -0.2050   -0.0913      0.000000  47s
+   12  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.2450    0.8716   -0.3550   -0.1784      0.000000  48s
+   13  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.3750    0.8745   -0.2250   -0.1755      0.000000  51s
+   14  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4550    1.0307   -0.1450   -0.0193      0.000000  49s
+   15  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.3450    0.8416   -0.2550   -0.2084      0.000000  53s
+   16  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.3750    0.9106   -0.2250   -0.1394      0.000000  56s
+   17  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.2650    0.8716   -0.3350   -0.1784      0.000000  52s
+   18  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.3950    0.9106   -0.2050   -0.1394      0.000000  50s
+   19  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4350    0.9917   -0.1650   -0.0583      0.000000  44s
+   20  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4650    1.0457   -0.1350   -0.0043      0.000000  52s
+   21  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.2950    0.8777   -0.3050   -0.1723      0.000000  53s
+   22  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 6 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.3450    0.8506   -0.2550   -0.1994      0.000000  51s
+   23  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.5050    1.0848   -0.0950   +0.0348      0.000000  52s
+   24  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4750    1.0609   -0.1250   +0.0109      0.000000  54s
+   25  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4550    1.0698   -0.1450   +0.0198      0.000000  51s
+   26  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.5150    1.1387   -0.0850   +0.0887      0.000000  50s
+   27  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4450    0.9796   -0.1550   -0.0704      0.000000  46s
+   28  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.5350    1.0816   -0.0650   +0.0316      0.000000  49s
+   29  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4549    1.0638   -0.1451   +0.0138      0.000000  45s
+   30  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4750    1.0456   -0.1250   -0.0044      0.000000  50s
+   31  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.3850    0.9076   -0.2150   -0.1424      0.000000  44s
+   32  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4550    1.0519   -0.1450   +0.0019      0.000000  46s
+   33  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4950    1.0757   -0.1050   +0.0257      0.000000  51s
+   34  /home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 8 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 3 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 5 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/nithin/.local/lib/python3.14/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 9 of parameter k1__length_scale is close to the specified upper bound 5.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+  1.4450    1.0639   -0.1550   +0.0139      0.000000  48s
+   35    1.3950    0.9497   -0.2050   -0.1003      0.000000  49s
+
+==============================================================
+  ✗ Best effort  (40 total sims)
+  V_PH = 1.5350 V  (err -0.0650 V)
+  V_PL = 1.0816 V  (err +0.0316 V)
+
+  Best sizing (ML result):
+  *   W1:   1.0977 µm  (nom=1.0)
+  *   L1:   2.4362 µm  (nom=2.5)
+  *   W2:   2.2123 µm  (nom=5.0)
+  *   L2:   3.0000 µm  (nom=2.5)
+  *   W3:   4.9835 µm  (nom=6.5)
+  *   L3:   1.0404 µm  (nom=0.15)
+  *   W4:  23.7880 µm  (nom=16.0)
+  *   L4:   0.1684 µm  (nom=0.15)
+  *   W6:   3.8886 µm  (nom=1.0)
+  *   L6:   0.9943 µm  (nom=0.15)
+
+  Saved → results/bo_real_run.json
+
+  Generating plots...
+  Saved: figures/observation_history.png
+  Saved: figures/convergence.png
+  Plots saved → figures/
+==============================================================
+
