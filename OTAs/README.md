@@ -22,16 +22,16 @@ Collection of Operational Transconductance Amplifier (OTA) IP blocks designed an
 
 ## Available IPs
 
-### 1. [`NMOS_SrcDeg_SE_OTA_IntBias/`](NMOS_SrcDeg_SE_OTA_IntBias/)
+### 1. [`NMOS_FoldedCasc_SE_OTA_IntBias/`](NMOS_FoldedCasc_SE_OTA_IntBias/)
 
-**NMOS Source-Degenerated OTA with Internal Bias**
+**NMOS Folded-Cascode OTA with Gm-Independent Bias (Internal)**
 
-Single NMOS differential pair with source-degeneration resistors for linearity improvement. Internal bias generation — no external bias pins needed. Single-ended output.
+NMOS differential input pair driving a folded-cascode output stage. The bias network is embedded in the cascode load and keeps Gm independent of process and temperature — no external bias pins required.
 
 | Property | Value |
 |----------|-------|
 | Input stage | Single NMOS differential pair |
-| Linearity technique | Source degeneration (`Gm_Cell`) |
+| Bias technique | Source degeneration (`Gm_Cell`) |
 | Output | Single-ended |
 | Bias | Internal |
 | Schematic tool | Xschem |
@@ -131,7 +131,7 @@ Rail_to_Rail_OTA_Inp_IP/
 
 | IP | Input CM | Output Swing | Bias | EN Pin | Automation |
 |----|----------|-------------|------|--------|------------|
-| `NMOS_SrcDeg_SE_OTA_IntBias` | Limited (NMOS only) | SE | Internal | — | Manual |
+| `NMOS_FoldedCasc_SE_OTA_IntBias` | Limited (NMOS only) | SE | Internal | — | Manual |
 | `RR_Inp_SE_OTA_ExtBias` | Rail-to-rail | SE | External | — | `run_corners.py` |
 | `RR_Inp_SE_OTA_IntBias` | Rail-to-rail | Rail-to-rail | Internal | ✓ | Full automation |
 | `Rail_to_Rail_IP_OP_SWING_OTA__IP` | Rail-to-rail | SE | — | — | Partial |
