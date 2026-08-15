@@ -391,4 +391,4 @@ footprint=1206
 device="ceramic capacitor"}
 C {lab_pin.sym} 470 40 0 0 {name=p12 sig_type=std_logic lab=GNDA}
 C {ngspice_probe.sym} 470 -20 0 1 {name=r1}
-C {/home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/Single_ended/With_internal_Bias/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sym} 480 -100 0 0 {name=x2}
+C {/home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/With_internal_Bias/SCH/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sym} 480 -100 0 0 {name=x1}
