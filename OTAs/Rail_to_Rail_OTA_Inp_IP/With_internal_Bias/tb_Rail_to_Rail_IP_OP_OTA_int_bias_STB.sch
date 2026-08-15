@@ -5,53 +5,51 @@ V {}
 S {}
 F {}
 E {}
-N -820 -50 -820 -10 {lab=VICM}
-N -820 50 -820 80 {lab=GNDA}
-N -540 -200 -540 -150 {lab=VDD}
-N -1000 -30 -1000 10 {lab=VDD}
-N -1000 70 -1000 100 {lab=GNDA}
-N -1230 70 -1230 100 {lab=0}
-N -1230 -20 -1230 10 {lab=GNDA}
-N -1140 70 -1140 100 {lab=GNDA}
-N -1140 -20 -1140 10 {lab=EN}
-N -560 -200 -560 -150 {lab=EN}
-N -540 -10 -540 60 {lab=GNDA}
-N -350 30 -350 70 {lab=GNDA}
-N -350 -80 -350 -30 {lab=Vout}
-N -480 -310 -350 -310 {lab=Vout
-spice_ignore=true}
-N -820 -310 -720 -310 {lab=#net1
-spice_ignore=true}
-N -660 -310 -540 -310 {lab=probe
-spice_ignore=true}
-N -590 -500 -590 -460 {lab=0
-spice_ignore=true}
-N -590 -400 -590 -310 {lab=probe
-spice_ignore=true}
-N -750 -100 -700 -100 {lab=Vout}
-N -750 -60 -700 -60 {lab=VICM}
-N -820 -250 -350 -250 {lab=Vout
+N 210 -70 210 -30 {lab=VICM}
+N 210 30 210 60 {lab=GNDA}
+N 490 -220 490 -170 {lab=VDD}
+N 30 -50 30 -10 {lab=VDD}
+N 30 50 30 80 {lab=GNDA}
+N -200 50 -200 80 {lab=0}
+N -200 -40 -200 -10 {lab=GNDA}
+N -110 50 -110 80 {lab=GNDA}
+N -110 -40 -110 -10 {lab=EN}
+N 470 -220 470 -170 {lab=EN}
+N 490 -30 490 40 {lab=GNDA}
+N 680 10 680 50 {lab=GNDA}
+N 680 -100 680 -50 {lab=Vout}
+N 550 -330 680 -330 {lab=Vout
 }
-N -350 -250 -350 -80 {lab=Vout}
-N -820 -250 -820 -110 {lab=Vout}
-N -820 -310 -820 -250 {lab=Vout
+N 210 -330 310 -330 {lab=#net1
 }
-N -350 -310 -350 -250 {lab=Vout
-spice_ignore=true}
-N -820 -100 -750 -100 {lab=Vout}
-N -820 -110 -820 -100 {lab=Vout}
-N -820 -60 -820 -50 {lab=VICM}
-N -820 -60 -750 -60 {lab=VICM}
-N -560 -10 -560 0 {lab=#net1}
-N -400 -80 -340 -80 {lab=Vout}
-N -340 -80 -290 -80 {lab=Vout}
-C {vdd.sym} -540 -200 0 0 {name=l3 lab=VDD}
-C {vdd.sym} -1000 -30 0 0 {name=l5 lab=VDD}
-C {lab_pin.sym} -290 -80 2 0 {name=p1 sig_type=std_logic lab=Vout}
-C {vsource.sym} -1230 40 0 0 {name=V3 value=0 savecurrent=false}
-C {gnd.sym} -1230 100 0 0 {name=l6 lab=0}
-C {lab_pin.sym} -1230 -20 0 0 {name=p9 sig_type=std_logic lab=GNDA}
-C {code.sym} -1010 -210 0 0 {name=SAVE_COMM only_toplevel=false value="
+N 370 -330 490 -330 {lab=probe
+}
+N 440 -520 440 -480 {lab=0
+}
+N 440 -420 440 -330 {lab=probe
+}
+N 280 -120 330 -120 {lab=#net1}
+N 280 -80 330 -80 {lab=VICM}
+N 680 -270 680 -100 {lab=Vout}
+N 210 -270 210 -130 {lab=#net1}
+N 210 -330 210 -270 {lab=#net1
+}
+N 680 -330 680 -270 {lab=Vout
+}
+N 210 -120 280 -120 {lab=#net1}
+N 210 -130 210 -120 {lab=#net1}
+N 210 -80 210 -70 {lab=VICM}
+N 210 -80 280 -80 {lab=VICM}
+N 470 -30 470 -20 {lab=#net2}
+N 630 -100 690 -100 {lab=Vout}
+N 690 -100 740 -100 {lab=Vout}
+C {vdd.sym} 490 -220 0 0 {name=l3 lab=VDD}
+C {vdd.sym} 30 -50 0 0 {name=l5 lab=VDD}
+C {lab_pin.sym} 740 -100 2 0 {name=p1 sig_type=std_logic lab=Vout}
+C {vsource.sym} -200 20 0 0 {name=V3 value=0 savecurrent=false}
+C {gnd.sym} -200 80 0 0 {name=l6 lab=0}
+C {lab_pin.sym} -200 -40 0 0 {name=p9 sig_type=std_logic lab=GNDA}
+C {code.sym} 20 -230 0 0 {name=SAVE_COMM only_toplevel=false value="
 
 .save @m.x1.xmn_bot_l2.msky130_fd_pr__nfet_01v8[gm]
 .save @m.x1.xmn_bot_l2.msky130_fd_pr__nfet_01v8[gds]
@@ -299,88 +297,35 @@ C {code.sym} -1010 -210 0 0 {name=SAVE_COMM only_toplevel=false value="
 .save @m.x1.xmp_sw3.msky130_fd_pr__pfet_01v8[cgso]
 .save @m.x1.xmp_sw3.msky130_fd_pr__pfet_01v8[cgdo]
 "}
-C {vsource.sym} -1140 40 0 0 {name=V5 value=1.8 savecurrent=false}
-C {lab_pin.sym} -1140 -20 0 0 {name=p10 sig_type=std_logic lab=EN }
-C {devices/code_shown.sym} -1590 -540 0 0 {name="DC_OP_SIMS" only_toplevel=true 
-value="
-.param A=10k Vos=0 VDD=1.8 VSS=0 
-.option wnflag=1 gmin=1e-18
-.option savecurrents
-.temp 27
-.control
-save all
-op
-write tb_Rail_to_Rail_IP_OP_OTA_int_bias.raw
-set appendwrite 
-**Plotting How Vout follows VICM in DC
-dc v2 0 1.8 10m
-write tb_Rail_to_Rail_IP_OP_OTA_int_bias.raw
-set appendwrite 
-plot v(Vout) v(VICM)
-plot v(Vout)-v(VICM)
-**Plotting PSRR
-ac dec 20 1 1e12 
-write tb_Rail_to_Rail_IP_OP_OTA_int_bias.raw
-plot vdb(Vout)
-**Plotting Transient
-tran 100u 10m 0.01m 
-write tb_Rail_to_Rail_IP_OP_OTA_int_bias.raw
-plot v(Vout) v(VICM) v(Vout)-v(VICM)
-plot v(Vout)-v(VICM)
-.endc
-"
-}
-C {devices/code.sym} -1140 -210 0 0 {name=TT_MODELS
+C {vsource.sym} -110 20 0 0 {name=V5 value=1.8 savecurrent=false}
+C {lab_pin.sym} -110 -40 0 0 {name=p10 sig_type=std_logic lab=EN }
+C {devices/code.sym} -110 -230 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval(@value )"
 value=".lib $::SKYWATER_MODELS/sky130.lib.spice tt
 .include $::SKYWATER_STDCELLS/sky130_fd_sc_hd.spice
 "
 place=header}
-C {devices/launcher.sym} -1050 -290 0 0 {name=h15
+C {devices/launcher.sym} -20 -310 0 0 {name=h15
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
-C {capa.sym} -350 0 0 0 {name=C1
+C {capa.sym} 680 -20 0 0 {name=C1
 m=1
 value=10p
 footprint=1206
 device="ceramic capacitor"}
-C {title.sym} -1260 160 0 0 {name=l11 author="Nithin Purushothama"}
-C {devices/code.sym} -1100 -480 0 0 {name=MC_SIMS only_toplevel=true 
-value="
-.option gmin=1e-18
-.options savecurrents
-.save all
-.temp=27
-.control
- let runs=1000
- let r=0
- dowhile r < runs
-   reset
-   let run=r
-   op
-   write /home/nithin/eda/LPCAS_TTSKY26a/tb_Gm_Cell_v2_MC_Sims_TB.raw
-   set appendwrite
-   let DIFF_MIS=v(VICM)-v(Vout) 
-   print v(DIFF_MIS)
-   wrdata /home/nithin/eda/LPCAS_TTSKY26a/tb_Gm_Cell_v2_MC_Sims_TB.txt r v(DIFF_MIS)
-   wrdata /home/nithin/eda/LPCAS_TTSKY26a/tb_Gm_Cell_v2_MC_Sims_TB.csv r v(DIFF_MIS)
-
-   let r = r + 1
- end
-.endc"
-spice_ignore=true}
-C {lab_pin.sym} -820 -60 0 0 {name=p3 sig_type=std_logic lab=VICM}
-C {vsource.sym} -510 -310 3 0 {name=Vprobe1 value="dc 0 ac 1" savecurrent=false
-spice_ignore=true}
-C {vsource.sym} -690 -310 1 0 {name=Vprobe2 value=0 savecurrent=false
-spice_ignore=true}
-C {isource.sym} -590 -430 0 0 {name=Iprobe1 value="dc 0 ac 1"
-spice_ignore=true}
-C {gnd.sym} -590 -500 2 0 {name=l7 lab=0
-spice_ignore=true}
-C {devices/code.sym} -960 -480 0 0 {name=STB_SIMS only_toplevel=true 
+C {title.sym} -230 140 0 0 {name=l11 author="Nithin Purushothama"}
+C {lab_pin.sym} 210 -80 0 0 {name=p3 sig_type=std_logic lab=VICM}
+C {vsource.sym} 520 -330 3 0 {name=Vprobe1 value="dc 0 ac 1" savecurrent=false
+}
+C {vsource.sym} 340 -330 1 0 {name=Vprobe2 value=0 savecurrent=false
+}
+C {isource.sym} 440 -450 0 0 {name=Iprobe1 value="dc 0 ac 1"
+}
+C {gnd.sym} 440 -520 2 0 {name=l7 lab=0
+}
+C {devices/code.sym} 70 -500 0 0 {name=STB_SIMS only_toplevel=true 
 value="
 .options savecurrents
 .control
@@ -422,28 +367,28 @@ value="
  op
  **show m : gm : gmbs : gds : vds : vdsat : vgs : vth : id
 .endc"
-spice_ignore=true}
-C {lab_pin.sym} -590 -310 3 0 {name=p4 sig_type=std_logic lab=probe
-spice_ignore=true}
-C {devices/launcher.sym} -1050 -330 0 0 {name=h17 
+}
+C {lab_pin.sym} 440 -330 3 0 {name=p4 sig_type=std_logic lab=probe
+}
+C {devices/launcher.sym} -20 -350 0 0 {name=h17 
 descr="Load waves" 
 tclcommand="
 xschem raw_read $netlist_dir/[file tail [file rootname [xschem get current_name]]].raw tran
 "
 }
-C {lab_pin.sym} -560 -200 0 0 {name=p5 sig_type=std_logic lab=EN }
-C {vsource.sym} -820 20 0 0 {name=V2 value="dc 0.9 sin(0.9 0.65 1k)" savecurrent=false}
-C {vsource.sym} -1000 40 0 0 {name=V4 value="dc 1.8 ac 1" savecurrent=false}
-C {lab_pin.sym} -540 60 0 1 {name=p2 sig_type=std_logic lab=GNDA}
-C {lab_pin.sym} -1140 100 0 0 {name=p6 sig_type=std_logic lab=GNDA}
-C {lab_pin.sym} -1000 100 0 0 {name=p7 sig_type=std_logic lab=GNDA}
-C {lab_pin.sym} -820 80 0 0 {name=p8 sig_type=std_logic lab=GNDA}
-C {lab_pin.sym} -350 70 0 0 {name=p11 sig_type=std_logic lab=GNDA}
-C {capa.sym} -560 30 0 1 {name=C2
+C {lab_pin.sym} 470 -220 0 0 {name=p5 sig_type=std_logic lab=EN }
+C {vsource.sym} 210 0 0 0 {name=V2 value="dc 0.9 sin(0.9 0.65 1k)" savecurrent=false}
+C {vsource.sym} 30 20 0 0 {name=V4 value="dc 1.8 ac 1" savecurrent=false}
+C {lab_pin.sym} 490 40 0 1 {name=p2 sig_type=std_logic lab=GNDA}
+C {lab_pin.sym} -110 80 0 0 {name=p6 sig_type=std_logic lab=GNDA}
+C {lab_pin.sym} 30 80 0 0 {name=p7 sig_type=std_logic lab=GNDA}
+C {lab_pin.sym} 210 60 0 0 {name=p8 sig_type=std_logic lab=GNDA}
+C {lab_pin.sym} 680 50 0 0 {name=p11 sig_type=std_logic lab=GNDA}
+C {capa.sym} 470 10 0 1 {name=C2
 m=1
 value=1p
 footprint=1206
 device="ceramic capacitor"}
-C {lab_pin.sym} -560 60 0 0 {name=p12 sig_type=std_logic lab=GNDA}
-C {ngspice_probe.sym} -560 0 0 1 {name=r1}
-C {/home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/Single_ended/With_internal_Bias/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sym} -550 -80 0 0 {name=x2}
+C {lab_pin.sym} 470 40 0 0 {name=p12 sig_type=std_logic lab=GNDA}
+C {ngspice_probe.sym} 470 -20 0 1 {name=r1}
+C {/home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/Single_ended/With_internal_Bias/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sym} 480 -100 0 0 {name=x2}

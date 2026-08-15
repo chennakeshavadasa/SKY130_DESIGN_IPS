@@ -1,57 +1,18 @@
-v {xschem version=3.4.8RC file_version=1.3}
-G {}
-K {}
-V {}
-S {}
-F {}
-E {}
-N -820 -50 -820 -10 {lab=VICM}
-N -820 50 -820 80 {lab=GNDA}
-N -540 -200 -540 -150 {lab=VDD}
-N -1000 -30 -1000 10 {lab=VDD}
-N -1000 70 -1000 100 {lab=GNDA}
-N -1230 70 -1230 100 {lab=0}
-N -1230 -20 -1230 10 {lab=GNDA}
-N -1140 70 -1140 100 {lab=GNDA}
-N -1140 -20 -1140 10 {lab=EN}
-N -560 -200 -560 -150 {lab=EN}
-N -540 -10 -540 60 {lab=GNDA}
-N -350 30 -350 70 {lab=GNDA}
-N -350 -80 -350 -30 {lab=Vout}
-N -480 -310 -350 -310 {lab=Vout
-spice_ignore=true}
-N -820 -310 -720 -310 {lab=#net1
-spice_ignore=true}
-N -660 -310 -540 -310 {lab=probe
-spice_ignore=true}
-N -590 -500 -590 -460 {lab=0
-spice_ignore=true}
-N -590 -400 -590 -310 {lab=probe
-spice_ignore=true}
-N -750 -100 -700 -100 {lab=Vout}
-N -750 -60 -700 -60 {lab=VICM}
-N -820 -250 -350 -250 {lab=Vout
-}
-N -350 -250 -350 -80 {lab=Vout}
-N -820 -250 -820 -110 {lab=Vout}
-N -820 -310 -820 -250 {lab=Vout
-}
-N -350 -310 -350 -250 {lab=Vout
-spice_ignore=true}
-N -820 -100 -750 -100 {lab=Vout}
-N -820 -110 -820 -100 {lab=Vout}
-N -820 -60 -820 -50 {lab=VICM}
-N -820 -60 -750 -60 {lab=VICM}
-N -560 -10 -560 0 {lab=#net1}
-N -400 -80 -340 -80 {lab=Vout}
-N -340 -80 -290 -80 {lab=Vout}
-C {vdd.sym} -540 -200 0 0 {name=l3 lab=VDD}
-C {vdd.sym} -1000 -30 0 0 {name=l5 lab=VDD}
-C {lab_pin.sym} -290 -80 2 0 {name=p1 sig_type=std_logic lab=Vout}
-C {vsource.sym} -1230 40 0 0 {name=V3 value=0 savecurrent=false}
-C {gnd.sym} -1230 100 0 0 {name=l6 lab=0}
-C {lab_pin.sym} -1230 -20 0 0 {name=p9 sig_type=std_logic lab=GNDA}
-C {code.sym} -1010 -210 0 0 {name=SAVE_COMM only_toplevel=false value="
+** sch_path: /home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/Single_ended/With_internal_Bias/tb_Rail_to_Rail_IP_OP_OTA_int_bias_DC_TRAN_PSRR.sch
+.lib /home/nithin/.ciel/sky130A/libs.tech/combined/sky130.lib.spice tt
+.include /home/nithin/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice
+
+**.subckt tb_Rail_to_Rail_IP_OP_OTA_int_bias_DC_TRAN_PSRR
+V3 GNDA 0 0
+V5 EN GNDA 1.8
+C1 Vout GNDA 10p
+V2 VICM GNDA dc 0.9 sin(0.9 0.65 1k)
+V4 VDD GNDA dc 1.8 ac 1
+C2 net1 GNDA 1p
+x2 VDD EN Vout Vout VICM net1 GNDA Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias
+**** begin user architecture code
+
+
 
 .save @m.x1.xmn_bot_l2.msky130_fd_pr__nfet_01v8[gm]
 .save @m.x1.xmn_bot_l2.msky130_fd_pr__nfet_01v8[gds]
@@ -298,12 +259,11 @@ C {code.sym} -1010 -210 0 0 {name=SAVE_COMM only_toplevel=false value="
 .save @m.x1.xmp_sw3.msky130_fd_pr__pfet_01v8[cgg]
 .save @m.x1.xmp_sw3.msky130_fd_pr__pfet_01v8[cgso]
 .save @m.x1.xmp_sw3.msky130_fd_pr__pfet_01v8[cgdo]
-"}
-C {vsource.sym} -1140 40 0 0 {name=V5 value=1.8 savecurrent=false}
-C {lab_pin.sym} -1140 -20 0 0 {name=p10 sig_type=std_logic lab=EN }
-C {devices/code_shown.sym} -1590 -540 0 0 {name="DC_OP_SIMS" only_toplevel=true 
-value="
-.param A=10k Vos=0 VDD=1.8 VSS=0 
+
+
+
+
+.param A=10k Vos=0 VDD=1.8 VSS=0
 .option wnflag=1 gmin=1e-18
 .option savecurrents
 .temp 27
@@ -311,139 +271,185 @@ value="
 save all
 op
 write tb_Rail_to_Rail_IP_OP_OTA_int_bias.raw
-set appendwrite 
+set appendwrite
 **Plotting How Vout follows VICM in DC
 dc v2 0 1.8 10m
 write tb_Rail_to_Rail_IP_OP_OTA_int_bias.raw
-set appendwrite 
+set appendwrite
 plot v(Vout) v(VICM)
 plot v(Vout)-v(VICM)
 **Plotting PSRR
-ac dec 20 1 1e12 
+ac dec 20 1 1e12
 write tb_Rail_to_Rail_IP_OP_OTA_int_bias.raw
 plot vdb(Vout)
 **Plotting Transient
-tran 100u 10m 0.01m 
+tran 100u 10m 0.01m
 write tb_Rail_to_Rail_IP_OP_OTA_int_bias.raw
 plot v(Vout) v(VICM) v(Vout)-v(VICM)
 plot v(Vout)-v(VICM)
 .endc
-"
-}
-C {devices/code.sym} -1140 -210 0 0 {name=TT_MODELS
-only_toplevel=true
-format="tcleval(@value )"
-value=".lib $::SKYWATER_MODELS/sky130.lib.spice tt
-.include $::SKYWATER_STDCELLS/sky130_fd_sc_hd.spice
-"
-place=header}
-C {devices/launcher.sym} -1050 -290 0 0 {name=h15
-descr="Annotate OP" 
-tclcommand="set show_hidden_texts 1; xschem annotate_op"
-}
-C {capa.sym} -350 0 0 0 {name=C1
-m=1
-value=10p
-footprint=1206
-device="ceramic capacitor"}
-C {title.sym} -1260 160 0 0 {name=l11 author="Nithin Purushothama"}
-C {devices/code.sym} -1100 -480 0 0 {name=MC_SIMS only_toplevel=true 
-value="
-.option gmin=1e-18
-.options savecurrents
-.save all
-.temp=27
-.control
- let runs=1000
- let r=0
- dowhile r < runs
-   reset
-   let run=r
-   op
-   write /home/nithin/eda/LPCAS_TTSKY26a/tb_Gm_Cell_v2_MC_Sims_TB.raw
-   set appendwrite
-   let DIFF_MIS=v(VICM)-v(Vout) 
-   print v(DIFF_MIS)
-   wrdata /home/nithin/eda/LPCAS_TTSKY26a/tb_Gm_Cell_v2_MC_Sims_TB.txt r v(DIFF_MIS)
-   wrdata /home/nithin/eda/LPCAS_TTSKY26a/tb_Gm_Cell_v2_MC_Sims_TB.csv r v(DIFF_MIS)
 
-   let r = r + 1
- end
-.endc"
-spice_ignore=true}
-C {lab_pin.sym} -820 -60 0 0 {name=p3 sig_type=std_logic lab=VICM}
-C {vsource.sym} -510 -310 3 0 {name=Vprobe1 value="dc 0 ac 1" savecurrent=false
-spice_ignore=true}
-C {vsource.sym} -690 -310 1 0 {name=Vprobe2 value=0 savecurrent=false
-spice_ignore=true}
-C {isource.sym} -590 -430 0 0 {name=Iprobe1 value="dc 0 ac 1"
-spice_ignore=true}
-C {gnd.sym} -590 -500 2 0 {name=l7 lab=0
-spice_ignore=true}
-C {devices/code.sym} -960 -480 0 0 {name=STB_SIMS only_toplevel=true 
-value="
-.options savecurrents
-.control
- save all
- let runs=2
- let run=0
 
- alter @Vprobe1[acmag]=1
- alter @iprobe1[acmag]=0
+**** end user architecture code
+**.ends
 
- dowhile run < runs
- set run =”$&run”
- ac dec 20 1 1e8
- write OTA_STB_TB_\{$run\}.raw
- all
- alter @Vprobe1[acmag]=0
- alter @iprobe1[acmag]=1
- let run = run + 1
- end
+* expanding   symbol:
+*+  /home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/Single_ended/With_internal_Bias/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sym # of pins=7
+** sym_path: /home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/Single_ended/With_internal_Bias/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sym
+** sch_path: /home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/Single_ended/With_internal_Bias/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sch
+.subckt Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias VDD EN VINN VOUT VINP MN_TAIL_BIAS GNDA
+*.ipin VINP
+*.ipin VINN
+*.ipin VDD
+*.ipin GNDA
+*.opin VOUT
+*.ipin EN
+*.iopin MN_TAIL_BIAS
+XMN_BOT_L2 net2 net8 GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=6 m=6
+XMN_CASC_L2 VOUT VBN_CASC net2 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58
++ sa=0 sb=0 sd=0 mult=3 m=3
+XMN_BOT_L1 net1 net8 GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=6 m=6
+XMN_CASC_L1 net5 VBN_CASC net1 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58
++ sa=0 sb=0 sd=0 mult=3 m=3
+XMP_CASC_L2 VOUT VBP_CASC net4 VDD sky130_fd_pr__pfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58
++ sa=0 sb=0 sd=0 mult=8 m=8
+XMP_CASC_L1 net5 VBP_CASC net3 VDD sky130_fd_pr__pfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58
++ sa=0 sb=0 sd=0 mult=8 m=8
+XMP_TOP_L1 net3 net5 VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0
++ sd=0 mult=6 m=6
+XMN_A1 net3 VINP net6 GND sky130_fd_pr__nfet_01v8_lvt L=2 W=2.5 nf=1 ad=0.725 as=0.725 pd=5.58 ps=5.58 nrd=0.116 nrs=0.116 sa=0
++ sb=0 sd=0 mult=8 m=8
+XMN_A2 net4 VINN net6 GND sky130_fd_pr__nfet_01v8_lvt L=2 W=2.5 nf=1 ad=0.725 as=0.725 pd=5.58 ps=5.58 nrd=0.116 nrs=0.116 sa=0
++ sb=0 sd=0 mult=8 m=8
+XMP_A1 net1 VINP net7 VDD sky130_fd_pr__pfet_01v8_lvt L=2 W=4 nf=1 ad=1.16 as=1.16 pd=8.58 ps=8.58 nrd=0.0725 nrs=0.0725 sa=0 sb=0
++ sd=0 mult=28 m=28
+XMP_A2 net2 VINN net7 VDD sky130_fd_pr__pfet_01v8_lvt L=2 W=4 nf=1 ad=1.16 as=1.16 pd=8.58 ps=8.58 nrd=0.0725 nrs=0.0725 sa=0 sb=0
++ sd=0 mult=28 m=28
+XMP_PDIFF_BIAS net7 net9 VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0
++ sb=0 sd=0 mult=8 m=8
+XMN_NDIFF_BIAS net6 net8 GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0
++ sb=0 sd=0 mult=8 m=8
+XMP_PDIFF_BIAS_B net9 net9 VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0
++ sb=0 sd=0 mult=1
+XMP_TOP_L2 net4 net5 VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0
++ sd=0 mult=6 m=6
+XMN_BIAS_SOURCE net9 net8 GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0
++ sb=0 sd=0 mult=1
+XMN_BIAS_EXT net8 net8 GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0
++ sb=0 sd=0 mult=1
+XMP_CASC_B_SOURCE VBN_CASC net9 VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145
++ sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS8 net16 VBN_CASC GNDA GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_B_SOURCE VBP_CASC net8 GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMP_CASC_BIAS1 net11 VBP_CASC VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58
++ sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS7 net17 VBN_CASC net16 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS6 net18 VBN_CASC net17 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMP_CASC_BIAS2 net10 VBP_CASC net11 VDD sky130_fd_pr__pfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMP_CASC_BIAS3 VBP_CASC VBP_CASC net10 VDD sky130_fd_pr__pfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS5 net19 VBN_CASC net18 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS4 net20 VBN_CASC net19 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS3 net21 VBN_CASC net20 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS1 VBN_CASC VBN_CASC net22 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_CASC_BIAS2 net22 VBN_CASC net21 GND sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58
++ nrs=0.58 sa=0 sb=0 sd=0 mult=1
+XMN_SW1 net8 EN_B GNDA GND sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0
++ mult=1
+XMP_SW1 net9 EN VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0 sd=0
++ mult=1
+XMP_SW2 VBP_CASC EN VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0
++ sd=0 mult=1
+XMN_SW2 VBN_CASC EN_B GNDA GND sky130_fd_pr__nfet_01v8 L=2 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0
++ sd=0 mult=1
+XMP_SW3 net5 EN VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0 sd=0
++ mult=1
+.save v(vdd)
+.save v(net7)
+XM1 VBP_TOP MN_TAIL_BIAS net12 GND sky130_fd_pr__nfet_01v8 L=4 W=10 nf=1 ad=2.9 as=2.9 pd=20.58 ps=20.58 nrd=0.029 nrs=0.029 sa=0
++ sb=0 sd=0 mult=16 m=16
+XM3 VBP_TOP VBP_TOP VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0
++ sd=0 mult=1
+XM4 MN_TAIL_BIAS VBP_TOP VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0
++ sb=0 sd=0 mult=1
+XM10 MN_TAIL_BIAS MN_TAIL_BIAS GNDA GND sky130_fd_pr__nfet_01v8 L=4 W=10 nf=1 ad=2.9 as=2.9 pd=20.58 ps=20.58 nrd=0.029 nrs=0.029
++ sa=0 sb=0 sd=0 mult=4 m=4
+XM16 MN_TAIL_BIAS EN_B GNDA GND sky130_fd_pr__nfet_01v8 L=6.4 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0
++ sb=0 sd=0 mult=1
+XR14 net23 net12 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR15 net24 net23 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR16 net25 net24 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR17 net26 net25 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR18 net27 net26 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR19 net28 net27 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR20 net29 net28 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR21 net30 net29 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XR22 GNDA net30 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=6.4 mult=1
+XM15 VBP_TOP EN VDD VDD sky130_fd_pr__pfet_01v8 L=1 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0 sd=0
++ mult=1
+XM2 VSTRP_IP VBP_TOP VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0
++ sd=0 mult=7 m=7
+XM19 VSTRP_IP VDD net31 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM20 net31 VDD net32 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM21 net32 VDD net33 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM26 net33 VDD net34 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM27 net34 VDD net35 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM28 net35 VDD net36 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM29 net36 VDD net37 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM30 net37 VDD net38 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM31 net38 VDD net39 GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM32 net39 VDD GNDA GNDA sky130_fd_pr__nfet_01v8 L=10 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0
++ sd=0 mult=1
+XM12 MN_TAIL_BIAS VSTRP_OUT net15 VDD sky130_fd_pr__pfet_01v8 L=4 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58
++ sa=0 sb=0 sd=0 mult=1
+XR24 net40 VDD GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR25 net41 net40 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR26 net42 net41 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR27 net43 net42 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR28 net44 net43 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR29 net45 net44 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR30 net46 net45 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR31 net47 net46 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XR34 net15 net47 GNDA sky130_fd_pr__res_xhigh_po_1p41 L=7.05 mult=1
+XM5 EN_B EN GNDA GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0
++ mult=1
+XM6 EN_B EN VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0
++ mult=1
+XM38 VSTRP_OUT net14 net13 GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0
++ sd=0 mult=1
+XM39 net13 EN GNDA GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0
++ mult=1
+XM42 net14 VSTRP_IP GNDA GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0
++ sd=0 mult=1
+XM43 net14 VSTRP_IP VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0
++ sd=0 mult=1
+XM13 VSTRP_OUT net14 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0
++ sd=0 mult=1
+XM14 VSTRP_OUT EN_B VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0
++ sd=0 mult=1
+XM9 net8 VBP_TOP VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0 sd=0
++ mult=2 m=2
+.ends
 
- let ip22 = ac2.i(Vprobe2)
- let vprb1 = ac1.probe
- let mb = 1/(vprb1+ip22)-1
- let phase_mb = 180/PI*vp(mb)
- plot vdb(mb)
- plot phase_mb
- plot vdb(mb) phase_mb
- echo "-------------------------------"
- echo "-------------------------------"
- meas ac peak MAX vmag(mb) FROM=2 TO=1.5GHZ
- let f3db = peak/sqrt(2)
- meas ac f1 WHEN vmag(mb)=f3db RISE=1
- meas ac BW WHEN vmag(mb)=f3db FALL=1
- let GBW = peak*BW
- meas ac pm_deg find phase_mb when vdb(mb)=0
- meas ac dominant_pole_f when vdb(mb)=0
- meas ac loop_gain find vdb(mb) at=0.01
- print GBW
- op
- **show m : gm : gmbs : gds : vds : vdsat : vgs : vth : id
-.endc"
-spice_ignore=true}
-C {lab_pin.sym} -590 -310 3 0 {name=p4 sig_type=std_logic lab=probe
-spice_ignore=true}
-C {devices/launcher.sym} -1050 -330 0 0 {name=h17 
-descr="Load waves" 
-tclcommand="
-xschem raw_read $netlist_dir/[file tail [file rootname [xschem get current_name]]].raw tran
-"
-}
-C {lab_pin.sym} -560 -200 0 0 {name=p5 sig_type=std_logic lab=EN }
-C {vsource.sym} -820 20 0 0 {name=V2 value="dc 0.9 sin(0.9 0.65 1k)" savecurrent=false}
-C {vsource.sym} -1000 40 0 0 {name=V4 value="dc 1.8 ac 1" savecurrent=false}
-C {lab_pin.sym} -540 60 0 1 {name=p2 sig_type=std_logic lab=GNDA}
-C {lab_pin.sym} -1140 100 0 0 {name=p6 sig_type=std_logic lab=GNDA}
-C {lab_pin.sym} -1000 100 0 0 {name=p7 sig_type=std_logic lab=GNDA}
-C {lab_pin.sym} -820 80 0 0 {name=p8 sig_type=std_logic lab=GNDA}
-C {lab_pin.sym} -350 70 0 0 {name=p11 sig_type=std_logic lab=GNDA}
-C {capa.sym} -560 30 0 1 {name=C2
-m=1
-value=1p
-footprint=1206
-device="ceramic capacitor"}
-C {lab_pin.sym} -560 60 0 0 {name=p12 sig_type=std_logic lab=GNDA}
-C {ngspice_probe.sym} -560 0 0 1 {name=r1}
-C {/home/nithin/eda/SKY130_DESIGN_IPS/OTAs/Rail_to_Rail_OTA_Inp_IP/Single_ended/With_internal_Bias/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sym} -550 -80 0 0 {name=x2}
+.GLOBAL VDD
+.end
