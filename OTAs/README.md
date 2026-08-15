@@ -31,7 +31,7 @@ NMOS differential input pair driving a folded-cascode output stage. The bias net
 | Property | Value |
 |----------|-------|
 | Input stage | Single NMOS differential pair |
-| Bias technique | Source degeneration (`Gm_Cell`) |
+| Bias technique | Gm-independent, embedded in cascode load |
 | Output | Single-ended |
 | Bias | Internal |
 | Schematic tool | Xschem |
