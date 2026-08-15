@@ -250,7 +250,6 @@ With_internal_Bias/
 ├── cross_corner_sim_Rail_to_Rail_OTA.py               # Python cross-corner automation script
 ├── device_db.json
 ├── sky130_area_estimator.py
-├── tb_Rail_to_Rail_IP_OP_OTA_int_bias_DC_TRAN_PSRR.spice
 └── README.md
 ```
 
