@@ -114,16 +114,16 @@ Stability analysis performed using the **Middlebrook two-port method** in Ngspic
 
 | Corner | UGF | Phase Margin | DC Gain (A₀) |
 |:---:|:---:|:---:|:---:|
-| tt | 1.95 MHz | 85° | 64 dB |
-| ss | 1.93 MHz | 85° | 64 dB |
-| ff | 1.97 MHz | 85° | 63 dB |
-| fs | 1.94 MHz | 85° | 64 dB |
-| sf | 1.96 MHz | 85° | 63 dB |
+| tt | 2.08 MHz | 85.2° | 63.7 dB |
+| ss | 2.06 MHz | 85.1° | 63.5 dB |
+| ff | 2.11 MHz | 85.2° | 63.5 dB |
+| fs | 2.07 MHz | 85.2° | 64.3 dB |
+| sf | 2.09 MHz | 85.1° | 62.7 dB |
 
 **Key observations:**
-- Phase margin of **85°** is consistent across all corners — an extremely stable design with significant margin above the 45° minimum.
-- UGF varies only from 1.93 MHz to 1.97 MHz, demonstrating tight corner tracking (~2% spread).
-- DC gain ranges from 63–64 dB, consistent with a single folded-cascode stage.
+- Phase margin of **~85.1°** is consistent across all corners — an extremely stable design with significant margin above the 45° minimum.
+- UGF varies only from 2.06 MHz to 2.11 MHz, demonstrating tight corner tracking (~2% spread).
+- DC gain ranges from 62.7–64.3 dB, consistent with a single folded-cascode stage.
 - The dominant pole is clearly visible at ~1 kHz; no secondary poles appear before UGF.
 
 ---
@@ -152,8 +152,8 @@ Stability analysis performed using the **Middlebrook two-port method** in Ngspic
 Power Supply Rejection Ratio measured as V<sub>out</sub>/V<sub>DD</sub> in dB vs. frequency.
 
 **Key observations:**
-- DC PSRR is approximately **−68 dB** across all corners — good supply rejection at low frequency owing to the high-impedance cascoded bias network.
-- PSRR degrades above ~100 kHz, settling to approximately **−30 dB** at 1 MHz (marked by the vertical dashed line) and beyond.
+- DC PSRR is approximately **−67 to −69 dB** across all corners — good supply rejection at low frequency owing to the high-impedance cascoded bias network.
+- PSRR degrades above ~100 kHz, settling to approximately **−37 dB** at 1 MHz (marked by the vertical dashed line) and beyond.
 - The degradation above the dominant pole frequency is expected in a single-stage OTA; PSRR tracks the open-loop gain rolloff.
 - All five corners overlap tightly, indicating PSRR is not process-sensitive.
 
@@ -163,22 +163,22 @@ Power Supply Rejection Ratio measured as V<sub>out</sub>/V<sub>DD</sub> in dB vs
 
 ![Monte Carlo](Rail_to_Rail_IP_OP_OTA_int_bias_Sims/IEEE_plots/mc_ieee.png)
 
-Monte Carlo mismatch simulation with **N = 200 runs** using SKY130 statistical mismatch models.
+Monte Carlo mismatch simulation with **N = 1000 runs** using SKY130 statistical mismatch models.
 
 **Results:**
 
 | Parameter | Value |
 |---|---|
-| Number of runs (N) | 200 |
-| Mean offset (μ) | 0.11 mV |
-| Std. deviation (σ) | 1.537 mV |
-| Variance (σ²) | 2.361 mV² |
-| ±3σ range | ±4.61 mV |
+| Number of runs (N) | 1000 |
+| Mean offset (μ) | 0.07 mV |
+| Std. deviation (σ) | 1.59 mV |
+| Variance (σ²) | 2.53 mV² |
+| ±3σ range | ±4.77 mV |
 
 **Key observations:**
-- The offset distribution is well-centered at μ = 0.11 mV, confirming good layout symmetry in the input differential pair.
-- σ = 1.54 mV is competitive for an untrimmed OTA in a 130 nm process.
-- The ±3σ window spans approximately ±4.6 mV, meaning >99.7% of fabricated instances will have offset below 5 mV.
+- The offset distribution is well-centered at μ = 0.07 mV, confirming good layout symmetry in the input differential pair.
+- σ = 1.59 mV is competitive for an untrimmed OTA in a 130 nm process.
+- The ±3σ window spans approximately ±4.77 mV, meaning >99.7% of fabricated instances will have offset below 5 mV.
 - The histogram shape is approximately Gaussian, consistent with uncorrelated mismatch contributions from the diff pair and load devices.
 
 ---
@@ -189,13 +189,13 @@ Monte Carlo mismatch simulation with **N = 200 runs** using SKY130 statistical m
 |---|---|---|
 | Supply Voltage | 1.8 V | Nominal |
 | Input Common-Mode Range | 0 – 1.8 V | Rail-to-Rail |
-| DC Gain (A₀) | 63 – 64 dB | All corners |
-| Unity Gain Frequency | 1.93 – 1.97 MHz | All corners, C<sub>L</sub> = 10 pF |
-| Phase Margin | 85° | All corners |
+| DC Gain (A₀) | 62.7 – 64.3 dB | All corners |
+| Unity Gain Frequency | 2.06 – 2.11 MHz | All corners, C<sub>L</sub> = 10 pF |
+| Phase Margin | ~85.1° | All corners |
 | DC PSRR | ~−68 dB | Low frequency |
-| PSRR @ 1 MHz | ~−30 dB | All corners |
-| Input-Referred Offset (μ) | 0.11 mV | MC, N=200 |
-| Input-Referred Offset (σ) | 1.54 mV | MC, N=200 |
+| PSRR @ 1 MHz | ~−37 dB | All corners |
+| Input-Referred Offset (μ) | 0.07 mV | MC, N=1000 |
+| Input-Referred Offset (σ) | 1.59 mV | MC, N=1000 |
 | Topology | Folded Cascode | Complementary input pairs |
 | PDK | SKY130 (sky130A) | SkyWater 130 nm |
 | Input Device Type | LVT (pfet/nfet_01v8_lvt) | — |
