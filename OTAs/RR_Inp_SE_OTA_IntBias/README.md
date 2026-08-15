@@ -58,7 +58,7 @@ The folded cascode topology was chosen over a two-stage Miller-compensated OTA t
 
 ## Schematic
 
-![Schematic](https://github.com/chennakeshavadasa/SKY130_DESIGN_IPS/blob/main/OTAs/Rail_to_Rail_OTA_Inp_IP/With_internal_Bias/SCH/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.png)
+![Schematic](https://github.com/chennakeshavadasa/SKY130_DESIGN_IPS/blob/main/OTAs/RR_Inp_SE_OTA_IntBias/SCH/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.png)
 
 > Full schematic: `SCH/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sch` (Xschem)
 
@@ -205,7 +205,7 @@ Monte Carlo mismatch simulation with **N = 1000 runs** using SKY130 statistical 
 ## File Structure
 
 ```
-With_internal_Bias/
+RR_Inp_SE_OTA_IntBias/
 ├── SCH/
 │   ├── Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sch  # Top-level OTA schematic (Xschem)
 │   ├── Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sym  # Xschem symbol
