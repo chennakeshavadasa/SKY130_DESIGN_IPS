@@ -91,7 +91,7 @@ All simulations were run across **5 PVT corners** (tt, ss, ff, fs, sf) at T = 27
 
 ### 1. DC Transfer Characteristics
 
-![DC Transfer](Rail_to_Rail_OTA_Sims/IEEE_plots/IEEE_DC.png)
+![DC Transfer](Rail_to_Rail_IP_OP_OTA_int_bias_Sims/IEEE_plots/dc_ieee.png)
 
 **What is shown:**
 - **(Top)** V<sub>out</sub> vs. V<sub>ICM</sub> (unity-gain configuration) sweeping the input common-mode from 0 V to 1.8 V across all corners. The output closely tracks the ideal y = x line across the full swing.
@@ -106,7 +106,7 @@ All simulations were run across **5 PVT corners** (tt, ss, ff, fs, sf) at T = 27
 
 ### 2. Stability (Loop Gain & Phase)
 
-![Stability](Rail_to_Rail_OTA_Sims/IEEE_plots/IEEE_STB.png)
+![Stability](Rail_to_Rail_IP_OP_OTA_int_bias_Sims/IEEE_plots/stb_ieee.png)
 
 Stability analysis performed using the **Middlebrook two-port method** in Ngspice, with the OTA configured in unity-gain feedback and a 10 pF load.
 
@@ -130,7 +130,7 @@ Stability analysis performed using the **Middlebrook two-port method** in Ngspic
 
 ### 3. Transient Response
 
-![Transient](Rail_to_Rail_OTA_Sims/IEEE_plots/IEEE_TRAN.png)
+![Transient](Rail_to_Rail_IP_OP_OTA_int_bias_Sims/IEEE_plots/tran_ieee.png)
 
 **Test setup:** Unity-gain configuration with a sinusoidal V<sub>ICM</sub> input sweeping 0.25 V – 1.55 V (covering ~75% of the rail-to-rail range dynamically).
 
@@ -147,7 +147,7 @@ Stability analysis performed using the **Middlebrook two-port method** in Ngspic
 
 ### 4. PSRR
 
-![PSRR](Rail_to_Rail_OTA_Sims/IEEE_plots/IEEE_PSRR.png)
+![PSRR](Rail_to_Rail_IP_OP_OTA_int_bias_Sims/IEEE_plots/psrr_ieee.png)
 
 Power Supply Rejection Ratio measured as V<sub>out</sub>/V<sub>DD</sub> in dB vs. frequency.
 
@@ -161,7 +161,7 @@ Power Supply Rejection Ratio measured as V<sub>out</sub>/V<sub>DD</sub> in dB vs
 
 ### 5. Monte Carlo — Input-Referred Offset
 
-![Monte Carlo](Rail_to_Rail_OTA_Sims/IEEE_plots/IEEE_MC.png)
+![Monte Carlo](Rail_to_Rail_IP_OP_OTA_int_bias_Sims/IEEE_plots/mc_ieee.png)
 
 Monte Carlo mismatch simulation with **N = 200 runs** using SKY130 statistical mismatch models.
 
@@ -213,13 +213,13 @@ Rail_to_Rail_OTA_IP/
 │   ├── Rail_to_Rail_IP_OP_OTA_STB.sch                 # Stability testbench schematic
 │   ├── Rail_to_Rail_IP_OP_OTA_MC.sch                  # Monte Carlo testbench schematic
 │   └── tb_Rail_to_Rail_IP_OP_OTA_DC_TRAN_PSRR.sch    # DC/Transient/PSRR testbench
-├── Rail_to_Rail_OTA_Sims/
+├── Rail_to_Rail_IP_OP_OTA_int_bias_Sims/
 │   ├── IEEE_plots/
-│   │   ├── IEEE_DC.png / .pdf                         # DC transfer characteristic
-│   │   ├── IEEE_STB.png / .pdf                        # Loop gain & phase
-│   │   ├── IEEE_TRAN.png / .pdf                       # Transient response
-│   │   ├── IEEE_PSRR.png / .pdf                       # PSRR
-│   │   └── IEEE_MC.png / .pdf                         # Monte Carlo offset histogram
+│   │   ├── dc_ieee.png / .pdf                         # DC transfer characteristic
+│   │   ├── stb_ieee.png / .pdf                        # Loop gain & phase
+│   │   ├── tran_ieee.png / .pdf                       # Transient response
+│   │   ├── psrr_ieee.png / .pdf                       # PSRR
+│   │   └── mc_ieee.png / .pdf                         # Monte Carlo offset histogram
 │   ├── DC/
 │   │   ├── csv_results/                               # Per-corner DC CSV data
 │   │   ├── spice/                                     # Per-corner DC netlists & logs
