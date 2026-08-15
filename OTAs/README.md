@@ -131,11 +131,11 @@ Rail_to_Rail_OTA_Inp_IP/
 
 | IP | Input CM | Output Type | Output Swing | Bias | EN Pin | Automation |
 |----|----------|------------|--------------|------|--------|------------|
-| `NMOS_FoldedCasc_SE_OTA_IntBias` | Limited (NMOS only) | Single-ended | VDD−Vov to Vov | Internal | — | Manual |
-| `RR_Inp_SE_OTA_ExtBias` | Rail-to-rail | Single-ended | VDD−Vov to Vov | External | — | `run_corners.py` |
+| `NMOS_FoldedCasc_SE_OTA_IntBias` | Limited (NMOS only) | Single-ended | 2·Vov to VDD−2·Vov | Internal | — | Manual |
+| `RR_Inp_SE_OTA_ExtBias` | Rail-to-rail | Single-ended | 2·Vov to VDD−2·Vov | External | — | `run_corners.py` |
 | `RR_Inp_SE_OTA_IntBias` | Rail-to-rail | Single-ended | ~0 → ~VDD | Internal | ✓ | Full automation |
 | `Rail_to_Rail_IP_OP_SWING_OTA__IP` | Rail-to-rail | Single-ended | ~0 → ~VDD | — | — | Partial |
-| `Rail_to_Rail_OTA_Inp_IP/` | Rail-to-rail | SE / Diff (WIP) | VDD−Vov to Vov | External / WIP | — | `run_corners.py` |
+| `Rail_to_Rail_OTA_Inp_IP/` | Rail-to-rail | SE / Diff (WIP) | 2·Vov to VDD−2·Vov | External / WIP | — | `run_corners.py` |
 
 ---
 
