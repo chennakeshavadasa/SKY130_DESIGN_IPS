@@ -3,7 +3,7 @@
 > **Author:** Nithin Purushothama  
 > **PDK:** SkyWater SKY130 (sky130A)  
 > **Toolchain:** Xschem · Ngspice · Magic VLSI · Netgen  
-> **Last Updated:** 2026-07-12
+> **Last Updated:** 2026-08-15
 > **Area:** 47.15µmx47.15µm
 
 ---
