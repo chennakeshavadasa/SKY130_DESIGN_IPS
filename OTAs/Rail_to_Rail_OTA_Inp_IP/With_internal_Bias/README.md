@@ -58,9 +58,9 @@ The folded cascode topology was chosen over a two-stage Miller-compensated OTA t
 
 ## Schematic
 
-![Schematic](SCH/Rail_to_Rail_IP_OP_OTA.png)
+![Schematic](SCH/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.pdf)
 
-> Full schematic: `SCH/Rail_to_Rail_IP_OP_OTA.sch` (Xschem)
+> Full schematic: `SCH/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sch` (Xschem)
 
 Key nodes and current budgets annotated on schematic:
 
@@ -205,14 +205,15 @@ Monte Carlo mismatch simulation with **N = 200 runs** using SKY130 statistical m
 ## File Structure
 
 ```
-Rail_to_Rail_OTA_IP/
+With_internal_Bias/
 ├── SCH/
-│   ├── Rail_to_Rail_IP_OP_OTA.sch                     # Top-level OTA schematic (Xschem)
-│   ├── Rail_to_Rail_IP_OP_OTA.sym                     # Xschem symbol
-│   ├── Rail_to_Rail_IP_OP_OTA.png                     # Schematic screenshot
-│   ├── Rail_to_Rail_IP_OP_OTA_STB.sch                 # Stability testbench schematic
-│   ├── Rail_to_Rail_IP_OP_OTA_MC.sch                  # Monte Carlo testbench schematic
-│   └── tb_Rail_to_Rail_IP_OP_OTA_DC_TRAN_PSRR.sch    # DC/Transient/PSRR testbench
+│   ├── Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sch  # Top-level OTA schematic (Xschem)
+│   ├── Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sym  # Xschem symbol
+│   ├── Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.pdf  # Schematic screenshot
+│   ├── tb_Rail_to_Rail_IP_OP_OTA_int_bias.sch
+│   ├── tb_Rail_to_Rail_IP_OP_OTA_int_bias_STB.sch     # Stability testbench schematic
+│   ├── tb_Rail_to_Rail_IP_OP_OTA_int_bias_MC.sch      # Monte Carlo testbench schematic
+│   └── tb_Rail_to_Rail_IP_OP_OTA_int_bias_DC_TRAN_PSRR.sch # DC/Transient/PSRR testbench
 ├── Rail_to_Rail_IP_OP_OTA_int_bias_Sims/
 │   ├── IEEE_plots/
 │   │   ├── dc_ieee.png / .pdf                         # DC transfer characteristic
@@ -241,12 +242,15 @@ Rail_to_Rail_OTA_IP/
 │       ├── spice/                                     # MC netlist & raw output
 │       └── MC_offset_histogram.html                   # Interactive Plotly MC histogram
 ├── different_spice/                                   # Standalone SPICE netlists
-│   ├── Rail_to_Rail_IP_OP_OTA_STB.spice
-│   ├── Rail_to_Rail_IP_OP_OTA_MC.spice
-│   ├── tb_Rail_to_Rail_IP_OP_OTA.spice
-│   └── tb_Rail_to_Rail_IP_OP_OTA_DC_TRAN_PSRR.spice
-├── run_corners.py                                     # Python cross-corner automation script
-├── tb_Rail_to_Rail_IP_OP_OTA_DC_TRAN_PSRR.spice
+│   ├── Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.spice
+│   ├── tb_Rail_to_Rail_IP_OP_OTA_int_bias.spice
+│   ├── tb_Rail_to_Rail_IP_OP_OTA_int_bias_STB.spice
+│   ├── tb_Rail_to_Rail_IP_OP_OTA_int_bias_MC.spice
+│   └── tb_Rail_to_Rail_IP_OP_OTA_int_bias_DC_TRAN_PSRR.spice
+├── cross_corner_sim_Rail_to_Rail_OTA.py               # Python cross-corner automation script
+├── device_db.json
+├── sky130_area_estimator.py
+├── tb_Rail_to_Rail_IP_OP_OTA_int_bias_DC_TRAN_PSRR.spice
 └── README.md
 ```
 
