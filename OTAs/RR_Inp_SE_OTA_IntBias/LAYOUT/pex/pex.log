@@ -1,0 +1,182 @@
+
+Magic 8.3 revision 637 - Compiled on Thu Apr 23 01:20:12 AM IST 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Loading "pex.tcl" from command line.
+Cell Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias read from current working directory
+Extracting Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias into Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.ext:
+exttospice finished.
+Extracting Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias into Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.ext:
+Processing cell Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias for resistance extraction.
+Adding  GNDA
+Adding  VDD; Tnew = 18.30ns, Told = 0.00ns
+Adding  EN; Tnew = 0.25ns, Told = 0.00ns
+Adding  VOUT; Tnew = 0.12ns, Told = 0.00ns
+Adding  MN_TAIL_BIAS; Tnew = 34.72ns, Told = 0.00ns
+Adding  VINN; Tnew = 24.85ns, Told = 0.00ns
+Adding  VINP; Tnew = 31.23ns, Told = 0.00ns
+Total Nets: 78
+Nets extracted: 7 (0.089744)
+Nets output: 7 (0.089744)
+exttosim finished.
+Adding  net5
+Adding  net9
+Adding  net3
+Adding  net4
+Adding  net7
+Adding  VBN_CASC
+Adding  VBP_TOP
+Adding  VBP_CASC
+Adding  a_5739_8229#
+Adding  a_5881_8229#
+Adding  net8
+Adding  VSTRP_IP
+Adding  net14
+Adding  EN_B
+Adding  VSTRP_OUT
+Adding  net15; Tnew = 0.01ns, Told = 0.00ns
+Adding  net6
+Adding  a_16520_7473#
+Adding  a_8458_6199#; Tnew = 0.00ns, Told = 0.00ns
+Adding  net1
+Adding  net2
+Adding  net12; Tnew = 0.17ns, Told = 0.00ns
+Adding  a_8836_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_9214_6199#; Tnew = 0.01ns, Told = 0.00ns
+Adding  a_9592_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_9970_6199#; Tnew = 0.01ns, Told = 0.00ns
+Adding  a_10348_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_10726_6199#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_11104_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_11860_6329#; Tnew = 0.01ns, Told = 0.00ns
+Adding  a_12238_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_12616_6329#; Tnew = 0.01ns, Told = 0.00ns
+Adding  a_12994_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_13372_6329#; Tnew = 0.01ns, Told = 0.00ns
+Adding  a_13750_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_14128_6329#; Tnew = 0.01ns, Told = 0.00ns
+Adding  a_14506_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_15596_6577#
+Adding  a_15904_6577#
+Adding  a_16212_6577#
+Adding  a_16520_6577#
+Adding  a_15442_4519#
+Adding  a_15750_4519#
+Adding  a_16058_4519#
+Adding  a_16366_4519#
+Adding  a_16674_4519#
+Adding  a_4949_1601#
+Adding  a_5091_1601#
+Adding  a_5233_1601#
+Adding  a_5375_1601#
+Adding  a_5517_1601#
+Adding  a_5659_1601#
+Adding  a_5801_1601#
+Adding  GNDA
+Adding  VDD; Tnew = 18.30ns, Told = 0.00ns
+Adding  EN; Tnew = 0.25ns, Told = 0.00ns
+Adding  VOUT; Tnew = 0.12ns, Told = 0.00ns
+Adding  MN_TAIL_BIAS; Tnew = 34.72ns, Told = 0.00ns
+Adding  VINN; Tnew = 24.85ns, Told = 0.00ns
+Adding  VINP; Tnew = 31.23ns, Told = 0.00ns
+Total Nets: 78
+Nets extracted: 60 (0.769231)
+Nets output: 60 (0.769231)
+exttospice finished.
+Usage: extract do option
+   or  extract no option
+where option is one of:
+  adjust			compensate R and C hierarchically
+  all			all options
+  capacitance		extract substrate capacitance
+  coupling		extract coupling capacitance
+  extresist		extract resistance
+  length			compute driver-receiver pathlengths
+  local			put all generated files in the current directory
+  lumped			estimate lumped resistance
+  labelcheck		check for connections through sticky labels
+  aliases		output all net name aliases
+  unique			ensure unique node names during extraction
+  resistance		extract resistance (same as "do extresist")
+Extracting Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias into Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.ext:
+Processing cell Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias for resistance extraction.
+Adding  net5
+Adding  net9
+Adding  net3
+Adding  net4
+Adding  net7
+Adding  VBN_CASC
+Adding  VBP_TOP
+Adding  VBP_CASC
+Adding  a_5739_8229#
+Adding  a_5881_8229#
+Adding  net8
+Adding  VSTRP_IP
+Adding  net14
+Adding  EN_B
+Adding  VSTRP_OUT
+Adding  net15; Tnew = 0.01ns, Told = 0.00ns
+Adding  net6
+Adding  a_16520_7473#
+Adding  a_8458_6199#; Tnew = 0.00ns, Told = 0.00ns
+Adding  net1
+Adding  net2
+Adding  net12; Tnew = 0.17ns, Told = 0.00ns
+Adding  a_8836_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_9214_6199#; Tnew = 0.01ns, Told = 0.00ns
+Adding  a_9592_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_9970_6199#; Tnew = 0.01ns, Told = 0.00ns
+Adding  a_10348_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_10726_6199#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_11104_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_11860_6329#; Tnew = 0.01ns, Told = 0.00ns
+Adding  a_12238_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_12616_6329#; Tnew = 0.01ns, Told = 0.00ns
+Adding  a_12994_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_13372_6329#; Tnew = 0.01ns, Told = 0.00ns
+Adding  a_13750_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_14128_6329#; Tnew = 0.01ns, Told = 0.00ns
+Adding  a_14506_4519#; Tnew = 0.00ns, Told = 0.00ns
+Adding  a_15596_6577#
+Adding  a_15904_6577#
+Adding  a_16212_6577#
+Adding  a_16520_6577#
+Adding  a_15442_4519#
+Adding  a_15750_4519#
+Adding  a_16058_4519#
+Adding  a_16366_4519#
+Adding  a_16674_4519#
+Adding  a_4949_1601#
+Adding  a_5091_1601#
+Adding  a_5233_1601#
+Adding  a_5375_1601#
+Adding  a_5517_1601#
+Adding  a_5659_1601#
+Adding  a_5801_1601#
+Adding  GNDA
+Adding  VDD; Tnew = 18.30ns, Told = 0.00ns
+Adding  EN; Tnew = 0.25ns, Told = 0.00ns
+Adding  VOUT; Tnew = 0.12ns, Told = 0.00ns
+Adding  MN_TAIL_BIAS; Tnew = 34.72ns, Told = 0.00ns
+Adding  VINN; Tnew = 24.85ns, Told = 0.00ns
+Adding  VINP; Tnew = 31.23ns, Told = 0.00ns
+Total Nets: 78
+Nets extracted: 60 (0.769231)
+Nets output: 60 (0.769231)
+Reading extract file.
+Building flattened netlist.
+Running antenna checks.
+antennacheck finished.

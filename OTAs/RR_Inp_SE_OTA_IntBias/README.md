@@ -5,6 +5,7 @@
 > **Toolchain:** Xschem · Ngspice · Magic VLSI · Netgen  
 > **Last Updated:** 2026-08-15
 > **Area:** 47.15µmx47.15µm
+> **Layout:** 87.07 µm × 47.02 µm (4094 µm²), DRC/LVS clean, post-layout verified → [`LAYOUT/`](LAYOUT/README.md)
 
 ---
 
@@ -21,7 +22,8 @@
    - [PSRR](#4-psrr)
    - [Monte Carlo — Input-Referred Offset](#5-monte-carlo--input-referred-offset)
 6. [Performance Summary](#performance-summary)
-7. [File Structure](#file-structure)
+7. [Layout & Post-Layout Verification](#layout--post-layout-verification)
+8. [File Structure](#file-structure)
 
 ---
 
@@ -202,6 +204,43 @@ Monte Carlo mismatch simulation with **N = 1000 runs** using SKY130 statistical 
 
 ---
 
+## Layout & Post-Layout Verification
+
+A full custom layout of this OTA is in [`LAYOUT/`](LAYOUT/README.md). The schematic was **not** modified.
+
+![Layout](LAYOUT/docs/layout_full.png)
+
+| Check | Result |
+|---|---|
+| DRC: magic `drc(full)` / KLayout `sky130A_mr.drc` (FEOL+BEOL+off-grid) | 0 / 0 |
+| Antenna (magic) | clean |
+| LVS (netgen vs xschem netlist of `SCH/`) | Circuits match uniquely |
+| PEX | magic full RC (1450 C, 1464 R) |
+| Cell size | 87.07 µm × 47.02 µm = 4094 µm² |
+
+Matching: PMOS input pair 4×14 in a 2-D common centroid (rows X X̄ X̄ X, X = ABBAABBAABBAAB) with an
+n-tap guard ring. NMOS input pair 2×8 common centroid with a p-tap guard ring. MP_TOP and MN_BOT load
+mirrors, the cascodes, the net9/VBP_TOP mirrors and the XM1/XM10 beta-multiplier pair are all
+interdigitated/common centroid.
+
+**Schematic vs extracted layout (tt, 27 °C, CL = 10 pF):**
+
+| Parameter | Schematic | Layout (RC) |
+|---|---|---|
+| DC loop gain | 71.12 dB | 70.90 dB |
+| UGF | 2.147 MHz | 2.104 MHz (−2.0 %) |
+| Phase margin | 86.6° | 85.0° |
+| Systematic offset @ 0.9 V | −0.075 mV | −0.075 mV |
+| PSRR @ 10 Hz / 1 MHz | −68.5 / −37.4 dB | −68.3 / −35.9 dB |
+| Supply current | 26.01 µA | 25.97 µA |
+| MC offset σ (tt_mm, N = 200) | 1.63 mV | 1.56 mV |
+
+The deltas are the same in all five corners, and start-up is verified in ss/tt/ff. Full per-corner
+tables, plots, parasitics and the methodology are in [`LAYOUT/README.md`](LAYOUT/README.md) and
+[`LAYOUT/docs/POST_LAYOUT_VERIFICATION.md`](LAYOUT/docs/POST_LAYOUT_VERIFICATION.md).
+
+---
+
 ## File Structure
 
 ```
@@ -241,6 +280,10 @@ RR_Inp_SE_OTA_IntBias/
 │       ├── csv_results/                               # MC offset CSV data
 │       ├── spice/                                     # MC netlist & raw output
 │       └── MC_offset_histogram.html                   # Interactive Plotly MC histogram
+├── LAYOUT/                                            # DRC/LVS-clean layout, PEX, post-layout verification
+│   ├── gds/  mag/  pex/  lvs/  drc/                   # GDS, magic layout, RC netlist, LVS/DRC reports
+│   ├── sim/  docs/                                    # schematic-vs-layout sims, plots, report
+│   └── README.md                                      # layout + verification documentation
 ├── different_spice/                                   # Standalone SPICE netlists
 │   ├── Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.spice
 │   ├── tb_Rail_to_Rail_IP_OP_OTA_int_bias.spice
