@@ -10,6 +10,6 @@
 | peak dyn. offset (mV) | 7.79 / 7.89 | 8.81 / 8.92 | 5.94 / 6.02 | 4.38 / 4.45 | 8.55 / 8.66 |
 | IDD (uA) | 26.01 / 25.97 | 25.53 / 25.48 | 26.49 / 26.45 | 25.89 / 25.85 | 26.13 / 26.09 |
 
-MC (pre-layout, tt_mm, N=200): mean -0.253 mV, sigma 1.625 mV
+MC (SCH-layout, tt_mm, N=200): mean -0.253 mV, sigma 1.625 mV
 
-MC (post-layout, tt_mm, N=200): mean -0.018 mV, sigma 1.562 mV
+MC (PEX-layout, tt_mm, N=200): mean -0.018 mV, sigma 1.562 mV

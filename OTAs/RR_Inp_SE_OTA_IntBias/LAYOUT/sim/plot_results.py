@@ -21,7 +21,7 @@ def pair(fig_name, key, xlab, ylab, logx=False, title=""):
     for c in CORNERS:
         for mode, ls in (("sch", ":"), ("pex", "-")):
             x, y = R[mode][c][key][0], R[mode][c][key][1]
-            ax.plot(x, y, ls, color=COL[c], lw=1.2, label=f"{c} {'pre' if mode == 'sch' else 'post'}")
+            ax.plot(x, y, ls, color=COL[c], lw=1.2, label=f"{c} {'SCH' if mode == 'sch' else 'PEX'}")
     if logx:
         ax.set_xscale("log")
     ax.set_xlabel(xlab)
@@ -38,24 +38,24 @@ fig, (a1, a2) = plt.subplots(2, 1, figsize=(6.4, 5.2), sharex=True)
 for c in CORNERS:
     for mode, ls in (("sch", ":"), ("pex", "-")):
         f, m, p = R[mode][c]["stb_curve"]
-        a1.semilogx(f, m, ls, color=COL[c], lw=1.2, label=f"{c} {'pre' if mode == 'sch' else 'post'}")
+        a1.semilogx(f, m, ls, color=COL[c], lw=1.2, label=f"{c} {'SCH' if mode == 'sch' else 'PEX'}")
         a2.semilogx(f, p, ls, color=COL[c], lw=1.2)
 a1.axhline(0, color="k", lw=0.6)
 a1.set_ylabel("|T| (dB)")
 a2.set_ylabel("phase(T) rel. DC (deg)")
 a2.set_xlabel("frequency (Hz)")
-a1.set_title("Loop gain T (Middlebrook), unity gain, CL=10 pF\ndotted: schematic, solid: extracted layout", fontsize=9)
+a1.set_title("Loop gain T (Middlebrook), unity gain, CL=10 pF\ndotted: schematic (SCH), solid: extracted layout (PEX, full RC)", fontsize=9)
 a1.legend(ncol=5, fontsize=7)
 fig.tight_layout()
-fig.savefig(os.path.join(OUT, "stb_pre_post.png"), dpi=150)
+fig.savefig(os.path.join(OUT, "sch_vs_pex_stb.png"), dpi=150)
 plt.close(fig)
 
-pair("dc_offset_pre_post.png", "dc_curve", "VICM (V)", "Vout - VICM (mV)",
-     title="Unity-gain DC offset vs input common mode")
-pair("psrr_pre_post.png", "psrr_curve", "frequency (Hz)", "Vout/VDD (dB)", logx=True,
-     title="PSRR (Vout/VDD)")
-pair("tran_offset_pre_post.png", "tran_curve", "time (s)", "Vout - VICM (mV)",
-     title="Dynamic offset, 1 kHz 0.25..1.55 V sine, unity gain")
+pair("sch_vs_pex_dc.png", "dc_curve", "VICM (V)", "Vout - VICM (mV)",
+     title="Unity-gain DC offset vs VICM (dotted: SCH, solid: PEX full RC)")
+pair("sch_vs_pex_psrr.png", "psrr_curve", "frequency (Hz)", "Vout/VDD (dB)", logx=True,
+     title="PSRR Vout/VDD (dotted: SCH, solid: PEX full RC)")
+pair("sch_vs_pex_tran.png", "tran_curve", "time (s)", "Vout - VICM (mV)",
+     title="Dynamic offset, 1 kHz 0.25..1.55 V sine (dotted: SCH, solid: PEX full RC)")
 
 # start-up
 fig, axs = plt.subplots(1, 3, figsize=(10, 3.2))
@@ -64,16 +64,16 @@ for c in ("tt", "ss", "ff"):
         s = R[mode]["start"][c]
         t = np.array(s["t"]) * 1e6
         m = t <= 40
-        axs[0].plot(t[m], np.array(s["vout"])[m], ls, color=COL[c], label=f"{c} {'pre' if mode == 'sch' else 'post'}")
+        axs[0].plot(t[m], np.array(s["vout"])[m], ls, color=COL[c], label=f"{c} {'SCH' if mode == 'sch' else 'PEX'}")
         axs[1].plot(t[m], np.array(s["mtb"])[m], ls, color=COL[c])
         axs[2].plot(t[m], np.array(s["idd"])[m] * 1e6, ls, color=COL[c])
 for ax, yl in zip(axs, ("Vout (V)", "MN_TAIL_BIAS (V)", "IDD (uA)")):
     ax.set_xlabel("t (us)")
     ax.set_ylabel(yl)
 axs[0].legend(fontsize=7)
-fig.suptitle("Start-up: VDD, EN, VICM ramp 0 -> final in 10 us (dotted: pre-layout, solid: post-layout)")
+fig.suptitle("Start-up: VDD, EN, VICM ramp 0 -> final in 10 us (dotted: SCH, solid: PEX full RC)")
 fig.tight_layout()
-fig.savefig(os.path.join(OUT, "startup_pre_post.png"), dpi=150)
+fig.savefig(os.path.join(OUT, "sch_vs_pex_startup.png"), dpi=150)
 plt.close(fig)
 
 # MC histogram
@@ -81,12 +81,12 @@ fig, ax = plt.subplots(figsize=(6.4, 3.6))
 for mode, col in (("sch", "#999999"), ("pex", "#2a6fdb")):
     a = np.array(R[mode]["mc"])
     ax.hist(a, bins=30, alpha=0.6, color=col,
-            label=f"{'pre' if mode == 'sch' else 'post'}-layout  N={len(a)}  mu={a.mean():.2f} mV  sigma={a.std(ddof=1):.2f} mV")
+            label=f"{'SCH' if mode == 'sch' else 'PEX'}-layout  N={len(a)}  mu={a.mean():.2f} mV  sigma={a.std(ddof=1):.2f} mV")
 ax.set_xlabel("input-referred offset Vout - VICM (mV), VICM = 0.9 V, tt_mm")
 ax.set_ylabel("count")
 ax.legend(fontsize=8)
 fig.tight_layout()
-fig.savefig(os.path.join(OUT, "mc_offset_pre_post.png"), dpi=150)
+fig.savefig(os.path.join(OUT, "sch_vs_pex_mc.png"), dpi=150)
 plt.close(fig)
 
 # markdown table
@@ -102,7 +102,7 @@ for k, name, fmt in keys:
     lines.append(f"| {name} | " + " | ".join(cells) + " |")
 for mode in ("sch", "pex"):
     a = np.array(R[mode]["mc"])
-    lines.append(f"\nMC ({'pre' if mode == 'sch' else 'post'}-layout, tt_mm, N={len(a)}): "
+    lines.append(f"\nMC ({'SCH' if mode == 'sch' else 'PEX'}-layout, tt_mm, N={len(a)}): "
                  f"mean {a.mean():.3f} mV, sigma {a.std(ddof=1):.3f} mV")
 open(os.path.join(SIM, "summary_table.md"), "w").write("\n".join(lines) + "\n")
 print("\n".join(lines))
