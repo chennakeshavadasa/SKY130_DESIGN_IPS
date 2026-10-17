@@ -274,10 +274,12 @@ def vtap_strip(lay, kind, xc, y1, y2, w=290, m1=True, cy1=None, cy2=None):
         lay.rect("metal1", xc - 145, y1, xc + 145, y2)
 
 
-def tap_ring(lay, kind, x1, y1, x2, y2, w=290, m1=True):
-    """closed guard ring of taps; (x1,y1,x2,y2) is the OUTER boundary"""
-    tap_strip(lay, kind, x1, x2, y1 + w // 2, h=w, m1=m1, cx1=x1 + w + 150, cx2=x2 - w - 150)
-    tap_strip(lay, kind, x1, x2, y2 - w // 2, h=w, m1=m1, cx1=x1 + w + 150, cx2=x2 - w - 150)
+def tap_ring(lay, kind, x1, y1, x2, y2, w=290, m1=True, hm1=None):
+    """closed guard ring of taps; (x1,y1,x2,y2) is the OUTER boundary.
+    hm1=False leaves the top/bottom strips li-only (frees met1 next to the ring)."""
+    hm1 = m1 if hm1 is None else hm1
+    tap_strip(lay, kind, x1, x2, y1 + w // 2, h=w, m1=hm1, cx1=x1 + w + 150, cx2=x2 - w - 150)
+    tap_strip(lay, kind, x1, x2, y2 - w // 2, h=w, m1=hm1, cx1=x1 + w + 150, cx2=x2 - w - 150)
     vtap_strip(lay, kind, x1 + w // 2, y1, y2, w=w, m1=m1)
     vtap_strip(lay, kind, x2 - w // 2, y1, y2, w=w, m1=m1)
 

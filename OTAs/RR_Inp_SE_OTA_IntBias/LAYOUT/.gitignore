@@ -14,3 +14,10 @@ sim/sch/
 sim/pex/
 run_all.log
 __pycache__/
+sim/lay/
+sim/pexc/
+sim/pexr0/
+sim/rattr/
+sim/r_*/
+sim/b_*/
+pex/*.res.ext

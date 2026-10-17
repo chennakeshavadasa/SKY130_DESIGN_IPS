@@ -172,6 +172,18 @@ def build_mn_casc():
     ROWS["mncasc"] = {"segs": segs, "stack": st, "tr": tr}
 
 
+def gate_shunt(segs, rows, net, yc, w, xa, xb, li=None):
+    """met1 shunt over an li gate strap: m1 bar (xa..xb, centred yc, width w) with an
+    mcon at the centre of every `net` gate of `rows`; li=(y1,y2) adds li under the mcons."""
+    lay.rect("metal1", xa, yc - w // 2, xb, yc + w // 2)
+    xs = sorted({(g0 + g1) // 2 for k in rows for (g0, g1), n in zip(segs[k].gx, segs[k].gate_net) if n == net})
+    if li:
+        lay.rect("locali", xs[0] - 85, li[0], xs[-1] + 85, li[1])
+    for x in xs:
+        lay.rect("viali", x - 85, yc - 85, x + 85, yc + 85)
+    return xs
+
+
 def build_pmos_pair():
     """MP_A1 (A, VINP, D=n1) / MP_A2 (B, VINN, D=n2), pfet_01v8_lvt W=4 L=2 x28 each.
     4 rows of 14 fingers, row patterns X, X', X', X  (2-D common centroid).
@@ -183,7 +195,7 @@ def build_pmos_pair():
     ring_y1 = Y["mc_top_track"] + 160 + RS
     r1 = ring_y1 + 290 + 200 + 485
     bots = [r1]
-    for g in (825, 640, 825):
+    for g in (825, 800, 825):
         bots.append(bots[-1] + W + g)
     pats = [X, Xb, Xb, X]
     sides = [{"VINP": "bot", "VINN": "top"}, {"VINN": "bot", "VINP": "top"},
@@ -201,7 +213,7 @@ def build_pmos_pair():
     for a, b in ((0, 1), (2, 3)):
         lay.rect("locali", gx1, segs[a].ytop + 235, gx2, segs[b].ybot - 235)
     sy = {"S0": bots[0] - 320, "S1": (segs[0].ytop + segs[1].ybot) // 2,
-          "S2": segs[1].ytop + 320, "S3": (segs[2].ytop + segs[3].ybot) // 2,
+          "S2": (segs[1].ytop + segs[2].ybot) // 2, "S3": (segs[2].ytop + segs[3].ybot) // 2,
           "S4": segs[3].ytop + 320}
     xbl, xbr = x0 - 600, x0 + nW + 600
     def sxa(net, y):   # first / last gate x of the strap(s) of `net` at level y
@@ -213,6 +225,17 @@ def build_pmos_pair():
         lay.rect("locali", sxa("VINN", sy[k])[1] - 100, sy[k] - 85, xbr + 85, sy[k] + 85)
     lay.rect("locali", xbl - 85, sy["S0"] - 85, xbl + 85, sy["S4"] + 85)
     lay.rect("locali", xbr - 85, sy["S1"] - 85, xbr + 85, sy["S3"] + 85)
+    # met1 shunts of the li gate straps (0.28 um from the 4 um-long S/D stripes)
+    b1, t4 = segs[0].ybot, segs[3].ytop
+    pmax = lambda rows: max(g1 for k in rows for (g0, g1), n in zip(segs[k].gx, segs[k].gate_net) if n == "VINP")
+    nmin = lambda rows: min(g0 for k in rows for (g0, g1), n in zip(segs[k].gx, segs[k].gate_net) if n == "VINN")
+    gate_shunt(segs, [0], "VINP", b1 - 395, 230, xbl - 150, pmax([0]), li=(b1 - 480, b1 - 235))
+    gate_shunt(segs, [3], "VINP", t4 + 395, 230, xbl - 150, pmax([3]), li=(t4 + 235, t4 + 480))
+    gate_shunt(segs, [1, 2], "VINP", sy["S2"], 230, xbl - 150, pmax([1, 2]))
+    gate_shunt(segs, [0, 1], "VINN", sy["S1"], 260, nmin([0, 1]), xbr + 150)
+    gate_shunt(segs, [2, 3], "VINN", sy["S3"], 260, nmin([2, 3]), xbr + 150)
+    lay.rect("metal1", xbl - 150, b1 - 510, xbl + 150, t4 + 510)
+    lay.rect("metal1", xbr - 150, sy["S1"] - 130, xbr + 150, sy["S3"] + 130)
     # gate exits to m2 (VINP left at S2 level, VINN right at S2 level)
     lay.li_m2(xbl, sy["S2"])
     lay.li_m2(xbr, sy["S2"])
@@ -227,7 +250,7 @@ def build_pmos_pair():
     rx1 = xbl - 160 - RS - 290
     rx2 = xbr + 160 + RS + 290
     ry2 = segs[3].ytop + 485 + 200 + 290
-    tap_ring(lay, "n", rx1, ring_y1, rx2, ry2)
+    tap_ring(lay, "n", rx1, ring_y1, rx2, ry2, hm1=False)
     lay.rect("nwell", rx1 - 180, ring_y1 - 180, rx2 + 180, ry2 + 180)
     ROWS["ppair"] = {"segs": segs, "tr": tr, "sy": sy, "xbl": xbl, "xbr": xbr,
                      "ring": (rx1, ring_y1, rx2, ry2)}
@@ -243,7 +266,7 @@ def build_nmos_pair():
     term = {"A": ("n6", "n3"), "B": ("n6", "n4")}
     ring_y1 = Y["ppair_top"] + 130
     r1 = ring_y1 + 290 + 200 + 440
-    bots = [r1, r1 + W + 780]
+    bots = [r1, r1 + W + 800]
     sides = [{"VINN": "bot", "VINP": "top"}, {"VINP": "bot", "VINN": "top"}]
     nW = 9 * SD + 8 * L
     x0 = XCC - nW // 2
@@ -263,6 +286,14 @@ def build_nmos_pair():
     for k in ("S0", "S2"):
         lay.rect("locali", sxa("VINN", sy[k])[1] - 100, sy[k] - 85, xbr + 85, sy[k] + 85)
     lay.rect("locali", xbr - 85, sy["S0"] - 85, xbr + 85, sy["S2"] + 85)
+    b1, t2 = segs[0].ybot, segs[1].ytop
+    pmax = max(g1 for k in (0, 1) for (g0, g1), n in zip(segs[k].gx, segs[k].gate_net) if n == "VINP")
+    nmin0 = min(g0 for (g0, g1), n in zip(segs[0].gx, segs[0].gate_net) if n == "VINN")
+    nmin1 = min(g0 for (g0, g1), n in zip(segs[1].gx, segs[1].gate_net) if n == "VINN")
+    gate_shunt(segs, [0, 1], "VINP", sy["S1"], 230, xbl - 150, pmax)
+    gate_shunt(segs, [0], "VINN", b1 - 395, 230, nmin0, xbr + 150, li=(b1 - 480, b1 - 190))
+    gate_shunt(segs, [1], "VINN", t2 + 395, 230, nmin1, xbr + 150, li=(t2 + 190, t2 + 480))
+    lay.rect("metal1", xbr - 150, b1 - 510, xbr + 150, t2 + 510)
     lay.li_m2(xbl, sy["S1"])
     lay.li_m2(xbr, sy["S1"])
     tr = []
@@ -274,7 +305,7 @@ def build_nmos_pair():
     rx1 = xbl - 160 - RS - 290
     rx2 = xbr + 160 + RS + 290
     ry2 = segs[1].ytop + 440 + 200 + 290
-    tap_ring(lay, "p", rx1, ring_y1, rx2, ry2)
+    tap_ring(lay, "p", rx1, ring_y1, rx2, ry2, hm1=False)
     ROWS["npair"] = {"segs": segs, "tr": tr, "sy": sy, "xbl": xbl, "xbr": xbr,
                      "ring": (rx1, ring_y1, rx2, ry2)}
     Y["npair_top"] = ry2

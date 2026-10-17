@@ -14,21 +14,6 @@ Circuit 1: sky130_fd_pr__pfet_01v8         |Circuit 2: sky130_fd_pr__pfet_01v8
 Cell pin lists are equivalent.
 Device classes sky130_fd_pr__pfet_01v8 and sky130_fd_pr__pfet_01v8 are equivalent.
 
-Circuit 1 cell sky130_fd_pr__pfet_01v8_lvt and Circuit 2 cell sky130_fd_pr__pfet_01v8_lvt are black boxes.
-Warning: Equate pins:  cell sky130_fd_pr__pfet_01v8_lvt is a placeholder, treated as a black box.
-Warning: Equate pins:  cell sky130_fd_pr__pfet_01v8_lvt is a placeholder, treated as a black box.
-
-Subcircuit pins:
-Circuit 1: sky130_fd_pr__pfet_01v8_lvt     |Circuit 2: sky130_fd_pr__pfet_01v8_lvt     
--------------------------------------------|-------------------------------------------
-1                                          |1                                          
-2                                          |2                                          
-3                                          |3                                          
-4                                          |4                                          
----------------------------------------------------------------------------------------
-Cell pin lists are equivalent.
-Device classes sky130_fd_pr__pfet_01v8_lvt and sky130_fd_pr__pfet_01v8_lvt are equivalent.
-
 Circuit 1 cell sky130_fd_pr__nfet_01v8 and Circuit 2 cell sky130_fd_pr__nfet_01v8 are black boxes.
 Warning: Equate pins:  cell sky130_fd_pr__nfet_01v8 is a placeholder, treated as a black box.
 Warning: Equate pins:  cell sky130_fd_pr__nfet_01v8 is a placeholder, treated as a black box.
@@ -43,6 +28,21 @@ Circuit 1: sky130_fd_pr__nfet_01v8         |Circuit 2: sky130_fd_pr__nfet_01v8
 ---------------------------------------------------------------------------------------
 Cell pin lists are equivalent.
 Device classes sky130_fd_pr__nfet_01v8 and sky130_fd_pr__nfet_01v8 are equivalent.
+
+Circuit 1 cell sky130_fd_pr__pfet_01v8_lvt and Circuit 2 cell sky130_fd_pr__pfet_01v8_lvt are black boxes.
+Warning: Equate pins:  cell sky130_fd_pr__pfet_01v8_lvt is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sky130_fd_pr__pfet_01v8_lvt is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sky130_fd_pr__pfet_01v8_lvt     |Circuit 2: sky130_fd_pr__pfet_01v8_lvt     
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sky130_fd_pr__pfet_01v8_lvt and sky130_fd_pr__pfet_01v8_lvt are equivalent.
 
 Circuit 1 cell sky130_fd_pr__nfet_01v8_lvt and Circuit 2 cell sky130_fd_pr__nfet_01v8_lvt are black boxes.
 Warning: Equate pins:  cell sky130_fd_pr__nfet_01v8_lvt is a placeholder, treated as a black box.
@@ -80,8 +80,8 @@ Subcircuit summary:
 Circuit 1: Rail_to_Rail_IP_OP_OTA_with_Int |Circuit 2: Rail_to_Rail_IP_OP_OTA_with_Int 
 -------------------------------------------|-------------------------------------------
 sky130_fd_pr__pfet_01v8 (61->23)           |sky130_fd_pr__pfet_01v8 (61->23)           
-sky130_fd_pr__pfet_01v8_lvt (56->2)        |sky130_fd_pr__pfet_01v8_lvt (56->2)        
 sky130_fd_pr__nfet_01v8 (74->35)           |sky130_fd_pr__nfet_01v8 (74->35)           
+sky130_fd_pr__pfet_01v8_lvt (56->2)        |sky130_fd_pr__pfet_01v8_lvt (56->2)        
 sky130_fd_pr__nfet_01v8_lvt (16->2)        |sky130_fd_pr__nfet_01v8_lvt (16->2)        
 sky130_fd_pr__res_xhigh_po_1p41 (18->2)    |sky130_fd_pr__res_xhigh_po_1p41 (18->2)    
 Number of devices: 64                      |Number of devices: 64                      
@@ -93,12 +93,12 @@ Subcircuit pins:
 Circuit 1: Rail_to_Rail_IP_OP_OTA_with_Int |Circuit 2: Rail_to_Rail_IP_OP_OTA_with_Int 
 -------------------------------------------|-------------------------------------------
 EN                                         |EN                                         
+MN_TAIL_BIAS                               |MN_TAIL_BIAS                               
 GNDA                                       |GNDA                                       
+VDD                                        |VDD                                        
 VOUT                                       |VOUT                                       
 VINP                                       |VINP                                       
 VINN                                       |VINN                                       
-MN_TAIL_BIAS                               |MN_TAIL_BIAS                               
-VDD                                        |VDD                                        
 ---------------------------------------------------------------------------------------
 Cell pin lists are equivalent.
 Device classes Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias and Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias are equivalent.

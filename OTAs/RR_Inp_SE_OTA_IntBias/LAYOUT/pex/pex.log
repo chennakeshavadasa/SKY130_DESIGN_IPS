@@ -22,12 +22,12 @@ exttospice finished.
 Extracting Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias into Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.ext:
 Processing cell Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias for resistance extraction.
 Adding  GNDA
-Adding  VDD; Tnew = 18.30ns, Told = 0.00ns
+Adding  VDD; Tnew = 42.65ns, Told = 0.00ns
 Adding  EN; Tnew = 0.25ns, Told = 0.00ns
 Adding  VOUT; Tnew = 0.12ns, Told = 0.00ns
-Adding  MN_TAIL_BIAS; Tnew = 34.72ns, Told = 0.00ns
-Adding  VINN; Tnew = 24.85ns, Told = 0.00ns
-Adding  VINP; Tnew = 31.23ns, Told = 0.00ns
+Adding  MN_TAIL_BIAS; Tnew = 34.73ns, Told = 0.00ns
+Adding  VINN; Tnew = 1.08ns, Told = 0.00ns
+Adding  VINP; Tnew = 1.02ns, Told = 0.00ns
 Total Nets: 78
 Nets extracted: 7 (0.089744)
 Nets output: 7 (0.089744)
@@ -40,8 +40,8 @@ Adding  net7
 Adding  VBN_CASC
 Adding  VBP_TOP
 Adding  VBP_CASC
-Adding  a_5739_8229#
-Adding  a_5881_8229#
+Adding  a_5739_8265#
+Adding  a_5881_8265#
 Adding  net8
 Adding  VSTRP_IP
 Adding  net14
@@ -49,7 +49,7 @@ Adding  EN_B
 Adding  VSTRP_OUT
 Adding  net15; Tnew = 0.01ns, Told = 0.00ns
 Adding  net6
-Adding  a_16520_7473#
+Adding  a_16520_7509#
 Adding  a_8458_6199#; Tnew = 0.00ns, Told = 0.00ns
 Adding  net1
 Adding  net2
@@ -86,12 +86,12 @@ Adding  a_5517_1601#
 Adding  a_5659_1601#
 Adding  a_5801_1601#
 Adding  GNDA
-Adding  VDD; Tnew = 18.30ns, Told = 0.00ns
+Adding  VDD; Tnew = 42.65ns, Told = 0.00ns
 Adding  EN; Tnew = 0.25ns, Told = 0.00ns
 Adding  VOUT; Tnew = 0.12ns, Told = 0.00ns
-Adding  MN_TAIL_BIAS; Tnew = 34.72ns, Told = 0.00ns
-Adding  VINN; Tnew = 24.85ns, Told = 0.00ns
-Adding  VINP; Tnew = 31.23ns, Told = 0.00ns
+Adding  MN_TAIL_BIAS; Tnew = 34.73ns, Told = 0.00ns
+Adding  VINN; Tnew = 1.08ns, Told = 0.00ns
+Adding  VINP; Tnew = 1.02ns, Told = 0.00ns
 Total Nets: 78
 Nets extracted: 60 (0.769231)
 Nets output: 60 (0.769231)
@@ -121,8 +121,8 @@ Adding  net7
 Adding  VBN_CASC
 Adding  VBP_TOP
 Adding  VBP_CASC
-Adding  a_5739_8229#
-Adding  a_5881_8229#
+Adding  a_5739_8265#
+Adding  a_5881_8265#
 Adding  net8
 Adding  VSTRP_IP
 Adding  net14
@@ -130,7 +130,7 @@ Adding  EN_B
 Adding  VSTRP_OUT
 Adding  net15; Tnew = 0.01ns, Told = 0.00ns
 Adding  net6
-Adding  a_16520_7473#
+Adding  a_16520_7509#
 Adding  a_8458_6199#; Tnew = 0.00ns, Told = 0.00ns
 Adding  net1
 Adding  net2
@@ -167,12 +167,12 @@ Adding  a_5517_1601#
 Adding  a_5659_1601#
 Adding  a_5801_1601#
 Adding  GNDA
-Adding  VDD; Tnew = 18.30ns, Told = 0.00ns
+Adding  VDD; Tnew = 42.65ns, Told = 0.00ns
 Adding  EN; Tnew = 0.25ns, Told = 0.00ns
 Adding  VOUT; Tnew = 0.12ns, Told = 0.00ns
-Adding  MN_TAIL_BIAS; Tnew = 34.72ns, Told = 0.00ns
-Adding  VINN; Tnew = 24.85ns, Told = 0.00ns
-Adding  VINP; Tnew = 31.23ns, Told = 0.00ns
+Adding  MN_TAIL_BIAS; Tnew = 34.73ns, Told = 0.00ns
+Adding  VINN; Tnew = 1.08ns, Told = 0.00ns
+Adding  VINP; Tnew = 1.02ns, Told = 0.00ns
 Total Nets: 78
 Nets extracted: 60 (0.769231)
 Nets output: 60 (0.769231)

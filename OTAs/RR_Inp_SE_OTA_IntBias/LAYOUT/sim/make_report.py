@@ -33,6 +33,20 @@ rcx = rd(f"pex/{CELL}_rcx.spice").splitlines()
 n_r = sum(1 for l in rcx if l.startswith("R"))
 n_c = sum(1 for l in rcx if l.startswith("C"))
 n_x = sum(1 for l in rcx if l.startswith("X"))
+
+
+def ctot(lines_):
+    t = 0.0
+    for l in lines_:
+        if l.startswith("C"):
+            m = re.match(r"([-\d.eE+]+)([fpa]?)", l.split()[3])
+            t += float(m.group(1)) * {"f": 1e-15, "p": 1e-12, "a": 1e-18, "": 1}[m.group(2)]
+    return t
+
+
+cxl = rd(f"pex/{CELL}_cx.spice").splitlines()
+n_cc = sum(1 for l in cxl if l.startswith("C"))
+C_cx, C_rcx = ctot(cxl) * 1e12, ctot(rcx) * 1e12
 import subprocess
 GDS = next(p for p in (os.path.join(ROOT, "mag", CELL + ".gds"), os.path.join(ROOT, "gds", CELL + ".gds"))
            if os.path.exists(p))
@@ -79,10 +93,15 @@ def build(IMG, PL, head=True):
     w(f"| DRC (2nd opinion) | KLayout `sky130A_mr.drc`, FEOL+BEOL+off-grid ({kl_rules} rule categories) | **{kl_n} violations** |")
     w(f"| Antenna | magic `antennacheck` | **{ant_viol} violations** |")
     w(f"| LVS | netgen 1.5 + `sky130A_setup.tcl`, layout vs xschem netlist of the untouched schematic | **{lvs_final}** ({lvs_dev} merged devices, {lvs_net} nets, no property errors) |")
-    w(f"| PEX | magic full RC (`extresist`, coupling C, cthresh=0, rthresh=0) | {n_x} device fingers, {n_c} C, {n_r} R |")
+    w(f"| PEX, C-only | magic standard extraction: substrate + coupling C (cthresh=0) | {n_cc} C, total {C_cx:.2f} pF: **best estimate** of wiring capacitance |")
+    w(f"| PEX, full RC | magic `extresist` (wire R + C, rthresh=0) | {n_x} device fingers, {n_c} C, {n_r} R, total {C_rcx:.2f} pF: **conservative** (see §5) |")
     w(f"| Post-layout simulation | ngspice, 5 corners + 200-run mismatch MC + start-up + power-down/enable | all specs preserved, see §4 |")
     w(f"\n**Cell size:** {W:.2f} µm × {H:.2f} µm = {W * H:.0f} µm².\n")
 
+    w(f"![annotated floorplan]({IMG}layout_annotated.png)\n")
+    w("_Annotated floorplan: every functional block of the final layout outlined and numbered "
+      "(input pairs, cascodes, current mirrors, beta-multiplier gm bias cell, resistors, start-up, "
+      "enable logic) with the pin locations. Boxes come from the layout generator's own geometry._\n")
     w(f"![layout]({IMG}layout_full.png)\n")
     w("_Full layout (KLayout render of the final GDS). Left: OTA core around a vertical symmetry axis. "
       "Right: internal bias (beta-multiplier XM1/XM10, xhigh-po resistors, start-up stack, enable logic)._\n")
@@ -92,12 +111,12 @@ def build(IMG, PL, head=True):
       "MP_A1/MN_A1 (VINP) and MP_A2/MN_A2 (VINN) alternate sides and share li straps between rows._\n")
 
     w("## 2. What was compared\n")
-    w("| | Pre-layout (schematic) | Post-layout (layout) |")
+    w("| | Pre-layout (schematic) | Post-layout (extracted layout) |")
     w("|---|---|---|")
     w("| Netlist | `sim/dut_sch.spice`: xschem simulation netlist of the original `.sch` (device lines identical to the repo's `different_spice/…spice`, incl. `mult`, AD/AS from xschem) | "
-      f"`pex/{CELL}_rcx.spice`: magic RC extraction of the final layout |")
+      f"`pex/{CELL}_cx.spice` (**PEX C-only**, best estimate) and `pex/{CELL}_rcx.spice` (**PEX full RC**, conservative) |")
     w("| Devices | 80 instances with `m=` multipliers | 225 individual fingers with real AD/AS/PD/PS |")
-    w(f"| Parasitics | none | {n_c} capacitors (to substrate + coupling), {n_r} wire/contact resistors |")
+    w(f"| Parasitics | none | C-only: {n_cc} capacitors, {C_cx:.2f} pF total. Full RC: {n_c} capacitors ({C_rcx:.2f} pF) + {n_r} wire/contact resistors |")
     w("\nBoth DUTs are dropped into **identical testbench decks** (only the `.include` line differs). "
       "Models: `sky130A/libs.tech/combined/sky130.lib.spice`. Conditions: VDD = 1.8 V, EN = 1.8 V, "
       "T = 27 °C, CL = 10 pF on VOUT, 1 pF on MN_TAIL_BIAS (as in the original testbenches).\n")
@@ -112,21 +131,27 @@ def build(IMG, PL, head=True):
     w("| MC | `tt_mm` (mismatch on), unity gain, VICM = 0.9 V, 200 independent ngspice processes (`.options seed=1…200`) | offset mean, σ |")
     w("\nCorners: tt, ss, ff, fs, sf (same set as the IP README).\n")
 
+    RV = json.load(open(os.path.join(ROOT, "sim", "results_views.json")))
     w("## 3. Headline comparison (tt, 27 °C)\n")
-    w("| Parameter | Unit | Schematic | Layout (RC) | Δ (layout − sch) |")
-    w("|---|---|---|---|---|")
+    w("Two post-layout netlists are reported. **PEX C-only** is magic's standard parasitic extraction "
+      "(substrate + coupling capacitance): the best estimate. **PEX full RC** is magic's `extresist` "
+      "netlist. It adds wire resistance, but it also writes extra substrate capacitance on every resistor "
+      f"sub-node ({C_rcx:.2f} pF total vs {C_cx:.2f} pF), so it is a conservative bound. Wiring resistance "
+      "itself is negligible (§5). Startup, power-down and MC were run on the conservative RC netlist.\n")
+    w("| Parameter | Unit | Schematic | PEX C-only | PEX full RC | Δ C-only | Δ full RC |")
+    w("|---|---|---|---|---|---|---|")
     for k, name, u, f, kind in MET:
-        a, b = R["sch"]["tt"][k], R["pex"]["tt"][k]
-        w(f"| {name} | {u} | {f.format(a)} | {f.format(b)} | {delta(a, b, kind, f)} |")
+        a, c_, b = R["sch"]["tt"][k], RV["pexc"]["tt"][k], R["pex"]["tt"][k]
+        w(f"| {name} | {u} | {f.format(a)} | {f.format(c_)} | {f.format(b)} | {delta(a, c_, kind, f)} | {delta(a, b, kind, f)} |")
     ms, mp = np.array(R["sch"]["mc"]), np.array(R["pex"]["mc"])
     PD = json.load(open(os.path.join(ROOT, "sim", "results_pd.json")))
     a_, b_ = PD["sch"]["op"]["tt_27"]["idd_nA"] * 1e3, PD["pex"]["op"]["tt_27"]["idd_nA"] * 1e3
-    w(f"| Power-down current (EN = 0) | pA | {a_:.1f} | {b_:.1f} | {b_ - a_:+.1f} |")
+    w(f"| Power-down current (EN = 0) | pA | {a_:.1f} | — | {b_:.1f} | — | {b_ - a_:+.1f} |")
     tw_s, tw_p = PD["sch"]["tran"]["tt"]["t_wake_vout_us"], PD["pex"]["tran"]["tt"]["t_wake_vout_us"]
-    w(f"| Wake-up time (EN↑ → Vout within 1 mV) | µs | {tw_s:.2f} | {tw_p:.2f} | {tw_p - tw_s:+.2f} |")
-    w(f"| MC offset σ (N={len(ms)}/{len(mp)}) | mV | {ms.std(ddof=1):.3f} | {mp.std(ddof=1):.3f} | "
+    w(f"| Wake-up time (EN↑ → Vout within 1 mV) | µs | {tw_s:.2f} | — | {tw_p:.2f} | — | {tw_p - tw_s:+.2f} |")
+    w(f"| MC offset σ (N={len(ms)}/{len(mp)}) | mV | {ms.std(ddof=1):.3f} | — | {mp.std(ddof=1):.3f} | — | "
       f"{mp.std(ddof=1) - ms.std(ddof=1):+.3f} |")
-    w(f"| MC offset mean | mV | {ms.mean():.3f} | {mp.mean():.3f} | {mp.mean() - ms.mean():+.3f} |")
+    w(f"| MC offset mean | mV | {ms.mean():.3f} | — | {mp.mean():.3f} | — | {mp.mean() - ms.mean():+.3f} |")
     se = ms.std(ddof=1) / np.sqrt(len(ms))
     w(f"\n_MC mean standard error ≈ {se:.2f} mV (σ/√N), so the two means agree to within about 2 standard errors; "
       "the systematic offset from the deterministic DC run is identical (−0.075 mV)._")
@@ -137,8 +162,10 @@ def build(IMG, PL, head=True):
         w("| | " + " | ".join(C5) + " |")
         w("|---|" + "---|" * 5)
         w("| schematic | " + " | ".join(f.format(R['sch'][c][k]) for c in C5) + " |")
-        w("| layout | " + " | ".join(f.format(R['pex'][c][k]) for c in C5) + " |")
-        w("| Δ | " + " | ".join(delta(R['sch'][c][k], R['pex'][c][k], kind, f) for c in C5) + " |\n")
+        w("| PEX C-only | " + " | ".join(f.format(RV['pexc'][c][k]) for c in C5) + " |")
+        w("| PEX full RC | " + " | ".join(f.format(R['pex'][c][k]) for c in C5) + " |")
+        w("| Δ C-only | " + " | ".join(delta(R['sch'][c][k], RV['pexc'][c][k], kind, f) for c in C5) + " |")
+        w("| Δ full RC | " + " | ".join(delta(R['sch'][c][k], R['pex'][c][k], kind, f) for c in C5) + " |\n")
 
     w("### 4.1 Loop gain / stability\n")
     w(f"![stb]({PL}sch_vs_pex_stb.png)\n")
@@ -248,28 +275,33 @@ def build(IMG, PL, head=True):
     w(f"![EN toggle]({PL}powerdown/en_toggle.png)\n")
     w(f"![wake-up]({PL}powerdown/wakeup_zoom.png)\n")
 
-    RV = json.load(open(os.path.join(ROOT, "sim", "results_views.json")))
-    VW = [("sch", "Schematic"), ("lay", "Layout, devices only"), ("pexc", "PEX, C only"), ("pex", "PEX, full RC")]
+    VW = [("sch", "Schematic"), ("lay", "Layout, devices only"), ("pexc", "PEX C-only"),
+          ("pexr0", "PEX RC, all R shorted"), ("pex", "PEX full RC")]
+    V5 = [v for v, _ in VW]
     w("## 5. Layout vs PEX: where the deltas come from\n")
-    w("To separate the effect of the physical devices from the wiring parasitics, the same testbenches "
-      "were also run on two intermediate views of the layout:\n")
-    w("| View | Netlist | Contains |")
+    w("The same testbenches were run on five netlist views. Each step adds exactly one effect:\n")
+    w("| View | Netlist | Adds |")
     w("|---|---|---|")
-    w("| Schematic | `sim/dut_sch.spice` | schematic devices (`m=` multipliers, xschem AD/AS) |")
-    w(f"| Layout, devices only | `mag/{CELL}.lvs.spice` (magic `ext2spice lvs`) | the 225 drawn fingers with their real AD/AS/PD/PS; no wiring R or C |")
-    w(f"| PEX, C only | `pex/{CELL}_cx.spice` | + extracted wiring capacitance to substrate and coupling |")
-    w(f"| PEX, full RC | `pex/{CELL}_rcx.spice` | + extracted wire/contact resistance (final post-layout view) |")
-    w("\nThe step-by-step differences show where each delta comes from: **layout − schematic** is device "
-      "geometry (shared diffusions, finger splitting), **PEX C − layout** is wiring capacitance, and "
-      "**PEX RC − PEX C** is wiring resistance.\n")
-    w("**tt, 27 °C**\n")
-    w("| Parameter | Schematic | Layout (devices) | PEX C | PEX RC | Δ geometry | Δ parasitic C | Δ wire R | Δ total |")
-    w("|---|---|---|---|---|---|---|---|---|")
+    w("| Schematic | `sim/dut_sch.spice` | — (schematic devices, `m=` multipliers, xschem AD/AS) |")
+    w(f"| Layout, devices only | `mag/{CELL}.lvs.spice` (`ext2spice lvs`) | **device geometry**: the 225 drawn fingers with real AD/AS/PD/PS, no wiring |")
+    w(f"| PEX C-only | `pex/{CELL}_cx.spice` | **wiring capacitance** (substrate + coupling), magic's standard extraction: best estimate |")
+    w(f"| PEX RC, all R shorted | `pex/{CELL}_rcx_R0.spice` | the **extra substrate capacitance** that magic's `extresist` writes on the resistor sub-nodes (no resistance) |")
+    w(f"| PEX full RC | `pex/{CELL}_rcx.spice` | **wiring resistance** |")
+    w(f"\n**Why two capacitance levels.** The coupling capacitors are identical in both extractions. "
+      f"`extresist`, however, writes additional substrate capacitance on every resistor sub-node, while the "
+      f"lumped node capacitance stays in the netlist. Total extracted capacitance rises from {C_cx:.2f} pF "
+      "(C-only) to " f"{C_rcx:.2f} pF (RC), about 1.9–2× on every signal net. For VOUT, for example, the "
+      "substrate capacitance goes from 1.5 fF to ≈ 9.7 fF, while a hand estimate of its ≈ 40 µm met3 bus "
+      "and ≈ 50 µm of met2 tracks gives a few fF. The C-only value is therefore the best estimate, and "
+      "the RC netlist is a conservative bound.\n")
+    w("**tt, 27 °C, step by step**\n")
+    w("| Parameter | Schematic | Layout (devices) | PEX C-only | PEX RC, R shorted | PEX full RC | Δ geometry | Δ wiring C | Δ extresist extra C | Δ wiring R |")
+    w("|---|---|---|---|---|---|---|---|---|---|")
     for k, name, u, f, kind in MET:
-        a, b, c_, d = (RV[v]["tt"][k] for v in ("sch", "lay", "pexc", "pex"))
+        v = [RV[x]["tt"][k] for x in V5]
         p = int(re.search(r"\.(\d)f", f).group(1))
-        w(f"| {name} ({u}) | {f.format(a)} | {f.format(b)} | {f.format(c_)} | {f.format(d)} | "
-          f"{b - a:+.{p}f} | {c_ - b:+.{p}f} | {d - c_:+.{p}f} | {d - a:+.{p}f} |")
+        w(f"| {name} ({u}) | " + " | ".join(f.format(x) for x in v) + " | "
+          + " | ".join(f"{v[i + 1] - v[i]:+.{p}f}" for i in range(4)) + " |")
     w("")
     for k, name, u, f, kind in [m for m in MET if m[0] in ("UGF_MHz", "PM_deg", "A0_dB", "PSRR_1MHz_dB", "IDD_uA")]:
         w(f"**{name} ({u}), all corners**\n")
@@ -278,32 +310,82 @@ def build(IMG, PL, head=True):
         for v, vl in VW:
             w(f"| {vl} | " + " | ".join(f.format(RV[v][c][k]) for c in C5) + " |")
         w("")
-    g = {k: [RV[v]["tt"][k] for v in ("sch", "lay", "pexc", "pex")] for k in ("UGF_MHz", "PM_deg", "PSRR_1MHz_dB", "A0_dB")}
-    def share(vals):
-        a, b, c_, d = vals
-        t = d - a
-        return [(b - a) / t * 100, (c_ - b) / t * 100, (d - c_) / t * 100] if abs(t) > 1e-12 else [0, 0, 0]
-    su, sp, sps = share(g["UGF_MHz"]), share(g["PM_deg"]), share(g["PSRR_1MHz_dB"])
+    g = {k: [RV[v]["tt"][k] for v in V5] for k in ("UGF_MHz", "PM_deg", "PSRR_1MHz_dB", "A0_dB")}
+    RA = json.load(open(os.path.join(ROOT, "sim", "r_attribution.json")))
     w("**Interpretation (tt):**\n")
-    w(f"* UGF change {g['UGF_MHz'][3] - g['UGF_MHz'][0]:+.3f} MHz: device geometry {su[0]:.0f} %, "
-      f"parasitic C {su[1]:.0f} %, wire R {su[2]:.0f} %.")
-    w(f"* Phase-margin change {g['PM_deg'][3] - g['PM_deg'][0]:+.2f}°: device geometry {sp[0]:.0f} %, "
-      f"parasitic C {sp[1]:.0f} %, wire R {sp[2]:.0f} %.")
-    w(f"* PSRR @ 1 MHz change {g['PSRR_1MHz_dB'][3] - g['PSRR_1MHz_dB'][0]:+.2f} dB: device geometry {sps[0]:.0f} %, "
-      f"parasitic C {sps[1]:.0f} %, wire R {sps[2]:.0f} %.")
-    w(f"* DC loop gain: {g['A0_dB'][0]:.2f} → {g['A0_dB'][1]:.2f} → {g['A0_dB'][2]:.2f} → {g['A0_dB'][3]:.2f} dB. "
-      "Offsets and supply current are unchanged across all views (see table).\n")
-    for fn, cap in (("views_stb_tt.png", "Loop gain, tt: four views (right: zoom on the high-frequency region where parasitics act)"),
-                    ("views_metrics_corners.png", "Key metrics per corner for all four views"),
-                    ("views_psrr_tt.png", "PSRR, tt: four views"),
+    w(f"* **Device geometry** (real fingers and shared diffusions) changes PM by {g['PM_deg'][1] - g['PM_deg'][0]:+.2f}°, "
+      f"UGF by {1e3 * (g['UGF_MHz'][1] - g['UGF_MHz'][0]):+.1f} kHz and the DC loop gain by {g['A0_dB'][1] - g['A0_dB'][0]:+.2f} dB.")
+    w(f"* **Wiring capacitance** (best estimate) changes PM by {g['PM_deg'][2] - g['PM_deg'][1]:+.2f}°, UGF by "
+      f"{1e3 * (g['UGF_MHz'][2] - g['UGF_MHz'][1]):+.1f} kHz and PSRR @ 1 MHz by {g['PSRR_1MHz_dB'][2] - g['PSRR_1MHz_dB'][1]:+.2f} dB.")
+    w(f"* The **extra substrate capacitance from `extresist`** adds {g['PM_deg'][3] - g['PM_deg'][2]:+.2f}° PM, "
+      f"{1e3 * (g['UGF_MHz'][3] - g['UGF_MHz'][2]):+.1f} kHz UGF and {g['PSRR_1MHz_dB'][3] - g['PSRR_1MHz_dB'][2]:+.2f} dB PSRR @ 1 MHz "
+      "on top. This is the pessimism of the RC netlist.")
+    w(f"* **Wiring resistance** is negligible: {g['PM_deg'][4] - g['PM_deg'][3]:+.3f}° PM and "
+      f"{1e3 * (g['UGF_MHz'][4] - g['UGF_MHz'][3]):+.1f} kHz UGF.\n")
+    w("**Per-net check of wiring resistance (tt):** each net's extracted resistors were shorted one at a time "
+      "in the full-RC netlist and the loop gain re-simulated (`sim/r_attribution.py`). The largest single-net "
+      "effects are:\n")
+    w("| Net whose R is shorted | Σ R in net (Ω) | Δ UGF (kHz) | Δ PM (deg) |")
+    w("|---|---|---|---|")
+    top = sorted(RA["per_net"], key=lambda r: -abs(r[3]))[:8]
+    for n, sr, du, dp in top:
+        w(f"| {n} | {sr:.0f} | {du * 1e3:+.2f} | {dp:+.4f} |")
+    w(f"\nAll nets shorted together: PM {RA['all_R_shorted'][1]:.3f}° vs {RA['full_RC'][1]:.3f}° with resistance. "
+      "No net's wiring resistance matters for stability in this layout.\n")
+    for fn, cap in (("views_stb_tt.png", "Loop gain, tt: all views (right: zoom on the high-frequency region where parasitics act)"),
+                    ("views_metrics_corners.png", "Key metrics per corner for all views"),
+                    ("views_psrr_tt.png", "PSRR, tt: all views"),
                     ("views_dc_tt.png", "DC offset, tt, and the difference of each layout view to the schematic (µV)"),
                     ("views_tran_tt.png", "Dynamic offset, tt, and the difference to the schematic (µV)")):
         w(f"**{cap}**\n")
         w(f"![{cap}]({PL}views/{fn})\n")
 
+    BEF = os.path.join(ROOT, "sim", "before_m1strap")
+    if os.path.exists(os.path.join(BEF, "results.json")) and os.path.exists(os.path.join(ROOT, "sim", "gate_resistance.json")):
+        RB = json.load(open(os.path.join(BEF, "results.json")))
+        GB = json.load(open(os.path.join(BEF, "gate_resistance.json")))
+        GA = json.load(open(os.path.join(ROOT, "sim", "gate_resistance.json")))
+        RSB = json.load(open(os.path.join(BEF, "r_short.json")))
+        w("### 5.1 met1 shunt of the input gate straps: before → after\n")
+        w("The first layout routed the input-pair gates on li1 only (≈ 12.8 Ω/sq): a strap along each row "
+          "and a vertical li bar per input. That gave a mean pin-to-gate resistance of 1.1–1.4 kΩ (up to "
+          "3 kΩ), and VINP and VINN were noticeably asymmetric. The final layout shunts every input gate strap "
+          "(PMOS pair S0–S4, NMOS pair S0–S2) and both vertical bars with met1, with an mcon at every gate. "
+          "To keep magic's 0.28 µm spacing from the long S/D stripes, the merged PMOS strap gap grew from "
+          "0.64 to 0.80 µm and the NMOS one from 0.78 to 0.80 µm (+0.18 µm cell height). The top and bottom "
+          "strips of the two input guard rings became li-only taps (no DC current; the vertical ring strips keep met1).\n")
+        w("**Effective resistance from the input pin to the 36 input-pair gate fingers** (solved on the extracted RC network, `sim/gate_resistance.py`)\n")
+        w("| Net | Before: mean / max (Ω) | After: mean / max (Ω) | Reduction of mean |")
+        w("|---|---|---|---|")
+        for n in ("VINP", "VINN"):
+            b, a = GB[n], GA[n]
+            w(f"| {n} | {b['R_mean']:.0f} / {b['R_max']:.0f} | {a['R_mean']:.0f} / {a['R_max']:.0f} | "
+              f"{100 * (1 - a['R_mean'] / b['R_mean']):.0f} % |")
+        w("")
+        w(f"**Effect on stability.** Shorting all wiring resistance in the old RC netlist raised PM by only "
+          f"{RSB['all_R_shorted'][1] - RSB['full_RC'][1]:+.3f}°. After the shunt the same test gives "
+          f"{RA['all_R_shorted'][1] - RA['full_RC'][1]:+.3f}°. The shunt therefore removed essentially all of the "
+          "(small) resistive effect, and PM improved by the expected ≈ 0.1°. Stability was never "
+          "resistance-limited: VINP is driven from outside the feedback loop, and VINN's gate capacitance "
+          "is largely bootstrapped by the pair's common source. The practical benefits of the shunt are "
+          "**symmetric, low-resistance inputs** (≈ 110 Ω) and less gate-resistance thermal noise "
+          f"(√(4kTR): {np.sqrt(4 * 1.380649e-23 * 300 * GB['VINP']['R_mean']) * 1e9:.1f} → "
+          f"{np.sqrt(4 * 1.380649e-23 * 300 * GA['VINP']['R_mean']) * 1e9:.1f} nV/√Hz on VINP).\n")
+        w("| Metric | Corner | Schematic | PEX RC before | PEX RC after | Change |")
+        w("|---|---|---|---|---|---|")
+        for k, nm, f in (("UGF_MHz", "UGF (MHz)", "{:.3f}"), ("PM_deg", "Phase margin (deg)", "{:.2f}"),
+                         ("PSRR_1MHz_dB", "PSRR @ 1 MHz (dB)", "{:.2f}"), ("A0_dB", "DC loop gain (dB)", "{:.2f}")):
+            for c in C5:
+                b, a = RB["pex"][c][k], R["pex"][c][k]
+                w(f"| {nm} | {c} | {f.format(R['sch'][c][k])} | {f.format(b)} | {f.format(a)} | {a - b:+.3f} |")
+        bm, am = np.array(RB["pex"]["mc"]), np.array(R["pex"]["mc"])
+        w(f"\nMC offset σ (PEX): {bm.std(ddof=1):.3f} mV before, {am.std(ddof=1):.3f} mV after. "
+          "Offsets, supply current and start-up are unaffected by the change.\n")
+
     w("## 6. Parasitics of the critical nets\n")
-    w("Total extracted capacitance per net, summing caps to substrate and coupling to all other nets. "
-      "Internal nets carry the schematic names via layout labels.\n")
+    w("Total extracted capacitance per net from the **PEX C-only** (best-estimate) extraction, summing "
+      "capacitance to substrate and coupling to all other nets. Internal nets carry the schematic names "
+      "via layout labels. The R-segment count is from the full-RC extraction.\n")
     w("| Net | Role | C_total (fF) | extracted R segments |")
     w("|---|---|---|---|")
     ROLE = {"VINP": "input +", "VINN": "input −", "net1": "PMOS-pair drain A / NMOS fold", "net2": "PMOS-pair drain B / NMOS fold",
@@ -327,21 +409,21 @@ def build(IMG, PL, head=True):
     d_pm = R["pex"]["tt"]["PM_deg"] - R["sch"]["tt"]["PM_deg"]
     d_ps = R["pex"]["tt"]["PSRR_1MHz_dB"] - R["sch"]["tt"]["PSRR_1MHz_dB"]
     w("## 7. Discussion\n")
-    w(f"* **Stability / bandwidth.** UGF drops by {abs(d_ugf):.1f} % and phase margin by {abs(d_pm):.2f}°, "
-      "the same in every corner. The four-view analysis (§5) splits this roughly half and half. "
-      "**Wiring capacitance** slows the non-dominant poles at the folding nodes (net1–net5). "
-      "**Wiring resistance** is mostly the li1 gate bars and straps of the input pairs (VINP/VINN, "
-      "segments up to 0.84 kΩ) driving the ~2 pF input-pair gate capacitance, plus the net5 li strap "
-      "to the MP_TOP gates. Device geometry alone changes PM by only +0.2°. "
-      f"With the 10 pF load the OTA stays over-damped (PM ≈ {R['pex']['tt']['PM_deg']:.0f}°). "
-      "*Optional improvement:* shunting the VINP/VINN li gate bars and inter-row straps with met1 would "
-      "recover most of the ~0.85° attributed to wire R.")
+    gv = {k: [RV[v]["tt"][k] for v in ("sch", "lay", "pexc", "pexr0", "pex")] for k in ("UGF_MHz", "PM_deg", "PSRR_1MHz_dB")}
+    w(f"* **Stability / bandwidth.** Against the schematic, the best-estimate extraction (C-only) changes "
+      f"UGF by {100 * (gv['UGF_MHz'][2] / gv['UGF_MHz'][0] - 1):+.1f} % and PM by {gv['PM_deg'][2] - gv['PM_deg'][0]:+.2f}°. "
+      f"The conservative RC netlist changes them by {100 * (gv['UGF_MHz'][4] / gv['UGF_MHz'][0] - 1):+.1f} % and "
+      f"{gv['PM_deg'][4] - gv['PM_deg'][0]:+.2f}°, the same in every corner. Almost all of it is parasitic "
+      "capacitance at the folding nodes (net1–net5) acting on the non-dominant poles. Wiring resistance "
+      f"contributes {gv['PM_deg'][4] - gv['PM_deg'][3]:+.3f}° (§5). With the 10 pF load the OTA stays "
+      f"over-damped (PM ≈ {R['pex']['tt']['PM_deg']:.0f}–{RV['pexc']['tt']['PM_deg']:.0f}°).")
     w(f"* **DC accuracy.** Systematic offset is unchanged (≤ 1 µV difference). The DC loop gain changes "
       f"by {R['pex']['tt']['A0_dB'] - R['sch']['tt']['A0_dB']:+.2f} dB. IR drops in the routing are "
       "negligible at this 26 µA supply current, consistent with VOUT and MN_TAIL_BIAS matching to 0.1 mV.")
-    w(f"* **PSRR.** Low-frequency PSRR is unchanged within 0.2 dB. At 1 MHz it degrades by {abs(d_ps):.1f} dB: "
-      "about 60 % from coupling capacitance between the VDD rails/n-ring and internal nodes, the rest "
-      f"from wiring resistance (§5). It remains ≈ {R['pex']['tt']['PSRR_1MHz_dB']:.0f} dB.")
+    w(f"* **PSRR.** Low-frequency PSRR is unchanged within 0.2 dB. At 1 MHz it degrades by "
+      f"{gv['PSRR_1MHz_dB'][2] - gv['PSRR_1MHz_dB'][0]:+.2f} dB (C-only) to {gv['PSRR_1MHz_dB'][4] - gv['PSRR_1MHz_dB'][0]:+.2f} dB "
+      "(RC), through coupling capacitance between the VDD rails/n-ring and internal nodes. It remains "
+      f"≈ {R['pex']['tt']['PSRR_1MHz_dB']:.0f} dB.")
     w("* **Matching.** Mismatch σ is preserved (layout and schematic are statistically identical). SPICE "
       "Monte Carlo models only random mismatch. The common-centroid placement (§8) additionally cancels "
       "linear process gradients, which neither simulation captures; this is a layout-only benefit.")
@@ -374,6 +456,9 @@ def build(IMG, PL, head=True):
       "PEX → all simulations). Then `python3 sim/run_views.py && python3 sim/plot_results.py && "
       "python3 sim/plot_pex.py && python3 sim/plot_views.py && python3 sim/parasitics.py && "
       "python3 sim/startup_probe.py && python3 sim/make_report.py`.")
+    w(f"* Post-layout netlists for top-level simulation: `pex/{CELL}_cx.spice` (C-only, best estimate) or "
+      f"`pex/{CELL}_rcx.spice` (full RC, conservative, with extra substrate C from `extresist`). Both have "
+      "the same port order as the symbol.")
     w("* Simulation note: the start-up supply current must be read with Gear integration (or averaged). "
       "Trapezoidal integration rings point-to-point on the source current; the ringing averages to the DC value.")
 

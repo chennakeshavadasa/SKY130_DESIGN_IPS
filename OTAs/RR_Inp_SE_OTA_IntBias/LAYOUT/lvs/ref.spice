@@ -1,4 +1,4 @@
-** sch_path: /home/nithin/eda/designs/sky130/SKY130_DESIGN_IPS/OTAs/RR_Inp_SE_OTA_IntBias/SCH/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sch
+** sch_path: /home/nithin/eda/designs/sky130/rr_ota_layout/xschem/Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias.sch
 .subckt Rail_to_Rail_IP_OP_OTA_with_Intrenal_Bias VDD EN VINN VOUT VINP MN_TAIL_BIAS GNDA
 *.PININFO VINP:I VINN:I VDD:I GNDA:I VOUT:O EN:I MN_TAIL_BIAS:B
 XMN_BOT_L2 net2 net8 GNDA GNDA sky130_fd_pr__nfet_01v8 L=2 W=0.5 nf=1 m=6
